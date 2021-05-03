@@ -1,5 +1,5 @@
 {
-  "name": "test_3",
+  "name": "New Project",
   "ogmoVersion": "3.4.0",
   "levelPaths": ["."],
   "backgroundColor": "#282c34ff",
@@ -18,19 +18,10 @@
   "entityTags": [],
   "layers": [
     {
-      "definition": "tile",
-      "name": "ground",
-      "gridSize": {"x": 8, "y": 8},
-      "exportID": "06448522",
-      "exportMode": 0,
-      "arrayMode": 0,
-      "defaultTileset": ""
-    },
-    {
       "definition": "decal",
-      "name": "new_layer",
+      "name": "test_4",
       "gridSize": {"x": 8, "y": 8},
-      "exportID": "06454173",
+      "exportID": "06634297",
       "folder": "",
       "includeImageSequence": true,
       "scaleable": false,
