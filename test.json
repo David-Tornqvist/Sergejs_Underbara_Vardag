@@ -1,0 +1,30 @@
+{
+  "ogmoVersion": "3.4.0",
+  "width": 320,
+  "height": 240,
+  "offsetX": 0,
+  "offsetY": 0,
+  "layers": [
+    {
+      "name": "ground",
+      "_eid": "05483953",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 40,
+      "gridCellsY": 30,
+      "decals": [
+        {
+          "x": 120,
+          "y": 120,
+          "texture": "unknown.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0}
+        }
+      ],
+      "folder": "graphics"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "test",
+  "ogmoVersion": "3.4.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 128, "y": 128},
+  "levelMaxSize": {"x": 4096, "y": 4096},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "decal",
+      "name": "ground",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "05483953",
+      "folder": "../spel1/graphics",
+      "includeImageSequence": true,
+      "scaleable": false,
+      "rotatable": false,
+      "values": [
+        {"name": "width", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "height", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100}
+      ]
+    }
+  ],
+  "entities": [],
+  "tilesets": []
+}
