@@ -1,0 +1,25 @@
+{
+  "ogmoVersion": "3.3.0",
+  "width": 320,
+  "height": 240,
+  "offsetX": 0,
+  "offsetY": 0,
+  "layers": [
+    {
+      "name": "ground",
+      "_eid": "06669814",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 40,
+      "gridCellsY": 30,
+      "decals": [
+        {"x": 168, "y": 152, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 88, "y": 112, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 240, "y": 104, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5}
+      ],
+      "folder": "../graphics"
+    }
+  ]
+}

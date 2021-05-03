@@ -1,6 +1,6 @@
 {
   "name": "New Project",
-  "ogmoVersion": "3.4.0",
+  "ogmoVersion": "3.3.0",
   "levelPaths": ["."],
   "backgroundColor": "#282c34ff",
   "gridColor": "#3c4049cc",
@@ -19,10 +19,10 @@
   "layers": [
     {
       "definition": "decal",
-      "name": "test_4",
+      "name": "ground",
       "gridSize": {"x": 8, "y": 8},
-      "exportID": "06634297",
-      "folder": "",
+      "exportID": "06669814",
+      "folder": "../graphics",
       "includeImageSequence": true,
       "scaleable": false,
       "rotatable": false,
