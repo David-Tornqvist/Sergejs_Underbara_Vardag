@@ -1,16 +1,22 @@
-local jsonText = love.filesystem.read("test.json");
+--local jsonText = love.filesystem.read("test.json");
 
-local json = require("json");
+--local json = require("json");
 
-local jsonTable = json.decode(jsonText);
+--local jsonTable = json.decode(jsonText);
 
 
-print(jsonTable.layers[1]);
+--print(jsonTable.layers[1]);
 
-local image = love.graphics.newImage(jsonTable.layers[1].folder .. "/" .. jsonTable.layers[1].decals[1].texture);
+local level = require "level";
+
+level.load("test_2");
+
+--local image = love.graphics.newImage("levels/" .. currentLevel .. "/" .. levels[1].table.layers[1].folder .. "/" .. levels[1].table.layers[1].decals[1].texture);
 
 love.draw = function ()
     
-    love.graphics.draw(image, jsonTable.layers[1].decals[1].x, jsonTable.layers[1].decals[1].y);
+    --love.graphics.draw(image, levels[level.getIndex(currentLevel)].table.layers[1].decals[1].x, levels[1].table.layers[1].decals[1].y);
+
+    level.draw(currentLevel);
 
 end

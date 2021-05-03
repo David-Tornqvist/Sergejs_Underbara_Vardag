@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "test_3",
   "ogmoVersion": "3.4.0",
   "levelPaths": ["."],
   "backgroundColor": "#282c34ff",
@@ -18,18 +18,24 @@
   "entityTags": [],
   "layers": [
     {
-      "definition": "decal",
+      "definition": "tile",
       "name": "ground",
       "gridSize": {"x": 8, "y": 8},
-      "exportID": "05483953",
-      "folder": "../spel1/graphics",
+      "exportID": "06448522",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": ""
+    },
+    {
+      "definition": "decal",
+      "name": "new_layer",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "06454173",
+      "folder": "",
       "includeImageSequence": true,
       "scaleable": false,
       "rotatable": false,
-      "values": [
-        {"name": "width", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
-        {"name": "height", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100}
-      ]
+      "values": []
     }
   ],
   "entities": [],
