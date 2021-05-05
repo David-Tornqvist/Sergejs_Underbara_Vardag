@@ -1,6 +1,6 @@
 local level = require "level";
 
-level.load("test_level_04");
+level.load("room");
 
 love.draw = function ()
 

@@ -19,6 +19,8 @@ local loadImgs = function (name)
     local index = level.getIndex(name);
     local level = levels[index];
 
+    Quads = {};
+
     for i = 1, #level.table.layers do
 
         if level.table.layers[i].decals ~= nil then
@@ -35,13 +37,20 @@ local loadImgs = function (name)
             TileSetImg = love.graphics.newImage("content/tiles/" .. level.table.layers[i].tileset .. ".png");
             local tileWidth = TileSetImg:getWidth() / level.table.layers[i].gridCellWidth;
             local tileHeight = TileSetImg:getHeight() /  level.table.layers[i].gridCellHeight;
-            Quads = {};
+
+
+            
+
+        
+            Quads[i] = {};
+            
+            
             
             local tileX = 1;
             local tilY = 1;
 
             for b = 1, tileWidth * tileHeight do
-                Quads[b] = love.graphics.newQuad(   (tileX - 1) * level.table.layers[i].gridCellWidth, (tilY - 1) * level.table.layers[i].gridCellHeight, 
+                Quads[i][b] = love.graphics.newQuad(   (tileX - 1) * level.table.layers[i].gridCellWidth, (tilY - 1) * level.table.layers[i].gridCellHeight, 
                                                     level.table.layers[i].gridCellWidth, level.table.layers[i].gridCellHeight, TileSetImg:getDimensions());
 
                 tileX = tileX + 1;
@@ -70,7 +79,7 @@ level.draw = function (name)
 
     local level = levels[level.getIndex(name)];
 
-    for layer = 1, #level.table.layers do
+    for layer = 1, #level.table.layers + 1 do
 
         if level.table.layers[layer].decals ~= nil then
             for decal = 1, #level.table.layers[layer].decals do
@@ -83,7 +92,7 @@ level.draw = function (name)
 
         if level.table.layers[layer].data2D ~= nil then
 
-            local coords = {x = 0, y = 0}
+            local coords = {x = 0, y = 0};
 
             for i = 1, #level.table.layers[layer].data2D do
                 for b = 1, #level.table.layers[layer].data2D[i] do
@@ -91,7 +100,7 @@ level.draw = function (name)
                     if level.table.layers[layer].data2D[i][b] ~= -1 then
 
                         --love.graphics.rectangle("fill", coords.x, coords.y, level.table.layers[layer].gridCellWidth, level.table.layers[layer].gridCellHeight);
-                        love.graphics.draw(TileSetImg, Quads[level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y)
+                        love.graphics.draw(TileSetImg, Quads[layer][level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y)
 
                     end
 
