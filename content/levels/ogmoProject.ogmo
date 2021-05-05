@@ -1,6 +1,6 @@
 {
   "name": "New Project",
-  "ogmoVersion": "3.3.0",
+  "ogmoVersion": "3.4.0",
   "levelPaths": ["."],
   "backgroundColor": "#282c34ff",
   "gridColor": "#3c4049cc",
@@ -22,13 +22,35 @@
       "name": "ground",
       "gridSize": {"x": 8, "y": 8},
       "exportID": "06669814",
-      "folder": "../graphics",
+      "folder": "../decals",
       "includeImageSequence": true,
       "scaleable": false,
       "rotatable": false,
       "values": []
+    },
+    {
+      "definition": "decal",
+      "name": "rocks",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "06750748",
+      "folder": "../decals",
+      "includeImageSequence": true,
+      "scaleable": false,
+      "rotatable": false,
+      "values": []
+    },
+    {
+      "definition": "tile",
+      "name": "tiles",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "06839385",
+      "exportMode": 0,
+      "arrayMode": 1,
+      "defaultTileset": "New Tileset"
     }
   ],
   "entities": [],
-  "tilesets": []
+  "tilesets": [
+    {"label": "Tileset_test", "path": "../tiles/unknown.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABD0lEQVRIDe2Tuw3CQBBEHRPggIDEObRASBGIhCqogzaIoDdKODSWnjW+O9uyzrIICFa7N7M7cx+7Ol2bUG/3bTwfh6BwDE55Li+disHP+xgICXnta+G+xpR+56WdGIwNMOwGYBj4fM8AwnM85JzqKT4x0J0h4nUOm+I10zPQgAAPF5nDS5z+9g0QvdSbsESgp7yOgXYtN9/9/bwLr1vThmrnVI/xaHUnyA1LIA76Ypw1PDkxoLE0/44BOxk60RAP3l0Rj+JCNJGdUw1Odl6YNHsGmDBQkhFfz4Aj+a515P9/0L0BV+NfQkmNXmIgwoVpdMzrHA+mnDXwhtJ61ECkR2zmnOqY11p4RREPLLGW9hefFbfrOSabtAAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+  ]
 }

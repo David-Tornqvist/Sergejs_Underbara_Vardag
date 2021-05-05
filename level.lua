@@ -20,25 +20,48 @@ local loadImgs = function (name)
     local level = levels[index];
 
     for i = 1, #level.table.layers do
-        
-        for b = 1, #level.table.layers[i].decals do
-            
-            levels[index].table.layers[i].decals[b].image = 
-            love.graphics.newImage("levels/" .. "/" .. level.table.layers[1].folder .. "/" .. level.table.layers[i].decals[b].texture);
 
+        if level.table.layers[i].decals ~= nil then
+            for b = 1, #level.table.layers[i].decals do
+            
+                levels[index].table.layers[i].decals[b].image = 
+                love.graphics.newImage("content" ..  level.table.layers[1].folder:gsub('%.', '') .. "/" .. level.table.layers[i].decals[b].texture);
+    
+            end
         end
 
-    end
+        if level.table.layers[i].data2D ~= nil then
 
+            TileSetImg = love.graphics.newImage("content/tiles/" .. level.table.layers[i].tileset .. ".png");
+            local tileWidth = TileSetImg:getWidth() / level.table.layers[i].gridCellWidth;
+            local tileHeight = TileSetImg:getHeight() /  level.table.layers[i].gridCellHeight;
+            Quads = {};
+            
+            local tileX = 1;
+            local tilY = 1;
+
+            for b = 1, tileWidth * tileHeight do
+                Quads[b] = love.graphics.newQuad(   (tileX - 1) * level.table.layers[i].gridCellWidth, (tilY - 1) * level.table.layers[i].gridCellHeight, 
+                                                    level.table.layers[i].gridCellWidth, level.table.layers[i].gridCellHeight, TileSetImg:getDimensions());
+
+                tileX = tileX + 1;
+                if tileX > tileWidth then
+                    tileX = 1;
+                    tilY = tilY + 1;
+                end
+
+            end
+        end
+    end
 end
 
 level.load = function (name)
    
     levels[#levels + 1] = { name = name,
-                            text = love.filesystem.read("levels/" .. name .. "/" .. name .. ".json")};
+                            text = love.filesystem.read("content/levels" ..  "/" .. name .. ".json")};
 
     levels[#levels].table = json.decode(levels[#levels].text);
-    currentLevel = name;
+    CurrentLevel = name;
 
     loadImgs(name);
 end
@@ -48,11 +71,43 @@ level.draw = function (name)
     local level = levels[level.getIndex(name)];
 
     for layer = 1, #level.table.layers do
-        for decal = 1, #level.table.layers[layer].decals do
-            love.graphics.draw(level.table.layers[layer].decals[decal].image, level.table.layers[layer].decals[decal].x, level.table.layers[layer].decals[decal].y);
+
+        if level.table.layers[layer].decals ~= nil then
+            for decal = 1, #level.table.layers[layer].decals do
+
+                local d = level.table.layers[layer].decals[decal];
+                love.graphics.draw(d.image, d.x, d.y);
+
+            end 
+        end
+
+        if level.table.layers[layer].data2D ~= nil then
+
+            local coords = {x = 0, y = 0}
+
+            for i = 1, #level.table.layers[layer].data2D do
+                for b = 1, #level.table.layers[layer].data2D[i] do
+
+                    if level.table.layers[layer].data2D[i][b] ~= -1 then
+
+                        --love.graphics.rectangle("fill", coords.x, coords.y, level.table.layers[layer].gridCellWidth, level.table.layers[layer].gridCellHeight);
+                        love.graphics.draw(TileSetImg, Quads[level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y)
+
+                    end
+
+                    
+                    coords.x = coords.x + level.table.layers[layer].gridCellWidth;
+                    
+                    if ((coords.x + level.table.layers[layer].gridCellWidth) > (level.table.layers[layer].gridCellsX * level.table.layers[layer].gridCellWidth)) then
+                       
+                        coords.x = 0;
+                        coords.y = coords.y + level.table.layers[layer].gridCellHeight;
+
+                    end
+                end
+            end
         end
     end
-
 end
 
 return level;

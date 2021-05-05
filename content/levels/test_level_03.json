@@ -15,9 +15,9 @@
       "gridCellsX": 40,
       "gridCellsY": 30,
       "decals": [
-        {"x": 168, "y": 152, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
-        {"x": 88, "y": 112, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
-        {"x": 240, "y": 104, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5}
+        {"x": 72, "y": 56, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 272, "y": 56, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 192, "y": 128, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5}
       ],
       "folder": "../decals"
     },
@@ -30,7 +30,11 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 30,
-      "decals": [],
+      "decals": [
+        {"x": 152, "y": 16, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 264, "y": 168, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5},
+        {"x": 72, "y": 160, "texture": "test_decal_04.png", "originX": 0.5, "originY": 0.5}
+      ],
       "folder": "../decals"
     },
     {
