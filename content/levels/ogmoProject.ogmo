@@ -46,7 +46,7 @@
       "gridSize": {"x": 8, "y": 8},
       "exportID": "22507699",
       "exportMode": 0,
-      "arrayMode": 0,
+      "arrayMode": 1,
       "defaultTileset": "interior"
     }
   ],
