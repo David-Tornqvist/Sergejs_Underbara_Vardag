@@ -6,10 +6,12 @@ camera.load = function ()
     local gameWidth = 1920;
 
     screenScale = (love.graphics.getWidth()/gameWidth);
-    zoom = 1;
+    zoom = 5;
     translate = {x = 0, y = 0};
     
     local isPan = false;
+
+    love.graphics.setDefaultFilter("nearest","nearest");
     
 end
 
