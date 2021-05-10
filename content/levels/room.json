@@ -21,7 +21,7 @@
           "texture": "säng.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 25, "height": 22}
+          "values": {"width": 25, "height": 22, "collide": true}
         }
       ],
       "folder": "../decals"

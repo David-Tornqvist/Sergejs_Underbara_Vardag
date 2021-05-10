@@ -147,12 +147,13 @@ level.isCollide = function (name,dx,dy) -- checks wether the new position would 
         
         if level.table.layers[layer].decals ~= nil then
             for decal = 1, #level.table.layers[layer].decals do
-
-                if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (level.table.layers[layer].decals[decal].x + level.table.layers[layer].decals[decal].values.width/2)) and
-                    ((Player.coords.x + Player.hitbox.width/2 + dx) > (level.table.layers[layer].decals[decal].x - level.table.layers[layer].decals[decal].values.width/2)) and
-                    ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (level.table.layers[layer].decals[decal].y + level.table.layers[layer].decals[decal].values.height/2)) and
-                    ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (level.table.layers[layer].decals[decal].y - level.table.layers[layer].decals[decal].values.height/2)) then
-                    collide = true;
+                if level.table.layers[layer].decals[decal].values.collide then
+                    if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (level.table.layers[layer].decals[decal].x + level.table.layers[layer].decals[decal].values.width/2)) and
+                        ((Player.coords.x + Player.hitbox.width/2 + dx) > (level.table.layers[layer].decals[decal].x - level.table.layers[layer].decals[decal].values.width/2)) and
+                        ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (level.table.layers[layer].decals[decal].y + level.table.layers[layer].decals[decal].values.height/2)) and
+                        ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (level.table.layers[layer].decals[decal].y - level.table.layers[layer].decals[decal].values.height/2)) then
+                        collide = true;
+                    end  
                 end
             end
         end
