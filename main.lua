@@ -160,12 +160,19 @@ love.update = function (dt)
     if Player.isMoving == false then
         Player.speed.y = 0;
         Player.speed.x = 0;
+
+        Player.animation.maxt = 3;
+        Player.animation.frametime = Player.animation.maxt/Player.animation.width; 
     else
-        Player.animation.pointer.x = math.floor(Player.animation.t / Player.animation.frametime + 1);      
+        Player.animation.maxt = Player.moveSpeed/80;
+        Player.animation.frametime = Player.animation.maxt/Player.animation.width;
+        if Player.animation.t > Player.animation.maxt then
+            Player.animation.t = 0;
+        end
     end
 
 
-
+    Player.animation.pointer.x = math.floor(Player.animation.t / Player.animation.frametime + 1);    
 
     
 

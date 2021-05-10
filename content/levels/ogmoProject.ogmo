@@ -33,7 +33,7 @@
     },
     {
       "definition": "tile",
-      "name": "walls",
+      "name": "collide",
       "gridSize": {"x": 8, "y": 8},
       "exportID": "22266180",
       "exportMode": 0,
@@ -45,15 +45,6 @@
       "name": "ground",
       "gridSize": {"x": 8, "y": 8},
       "exportID": "22507699",
-      "exportMode": 0,
-      "arrayMode": 1,
-      "defaultTileset": "interior"
-    },
-    {
-      "definition": "tile",
-      "name": "test",
-      "gridSize": {"x": 8, "y": 8},
-      "exportID": "37346365",
       "exportMode": 0,
       "arrayMode": 1,
       "defaultTileset": "interior"
