@@ -23,7 +23,6 @@ local animationLoad = function (img,width,height,time)
     local pointer = {x = 0, y = 0};
     local cellWidth = animation.texture:getWidth() / width;
     local cellHeight = animation.texture:getHeight() / height;
-    print(cellWidth,cellHeight);
 
     for anim = 1, height do
         for frame = 1, width do
@@ -36,6 +35,8 @@ local animationLoad = function (img,width,height,time)
 
     animation.pointer = {x = 1, y = 1};
     animation.frametime = animation.maxt/animation.width;
+    animation.cellWidth = cellWidth;
+    animation.cellHeight = cellHeight;
 
     return animation;
 
@@ -45,7 +46,7 @@ entity.playerLoad = function ()
 
     Player = {};
 
-    Player.spawn = {x = 100, y = 85};
+    Player.spawn = {x = 32, y = 85};
 
     Player.coords = {x = Player.spawn.x, y = Player.spawn.y};
 
@@ -58,6 +59,8 @@ entity.playerLoad = function ()
     Player.direction = 1;
 
     Player.isMoving = false;
+
+    Player.hitbox = {width = 10, height = 4, yOffset = 6};
 
 end
     

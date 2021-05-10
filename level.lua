@@ -120,4 +120,47 @@ level.draw = function (name)
     end
 end
 
+level.isCollide = function (name,dx,dy) -- checks wether the new position would collide
+
+    local index = level.getIndex(name);
+    local level = levels[index];
+    
+    local collide = false;
+
+    for layer = 1, #level.table.layers do
+        if level.table.layers[layer].name == "collide" then
+            for row = 1, #level.table.layers[layer].data2D do
+                for collumn = 1, #level.table.layers[layer].data2D[row] do
+                    if level.table.layers[layer].data2D[row][collumn] ~= -1  then
+                        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < ((collumn) * level.table.layers[layer].gridCellWidth)) and 
+                            ((Player.coords.x + Player.hitbox.width/2 + dx) > ((collumn - 1) * level.table.layers[layer].gridCellWidth)) and
+                            ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < ((row) * level.table.layers[layer].gridCellHeight)) and 
+                            ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > ((row - 1) * level.table.layers[layer].gridCellHeight)) then
+
+                            collide = true;
+                        end
+                        --(Player.coords.x + Player.hitbox.width/2) < ((collumn + 1) * level.table.layers[layer].gridCellWidth)
+                    end
+                end
+            end
+        end
+        
+        if level.table.layers[layer].decals ~= nil then
+            for decal = 1, #level.table.layers[layer].decals do
+
+                if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (level.table.layers[layer].decals[decal].x + level.table.layers[layer].decals[decal].values.width/2)) and
+                    ((Player.coords.x + Player.hitbox.width/2 + dx) > (level.table.layers[layer].decals[decal].x - level.table.layers[layer].decals[decal].values.width/2)) and
+                    ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (level.table.layers[layer].decals[decal].y + level.table.layers[layer].decals[decal].values.height/2)) and
+                    ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (level.table.layers[layer].decals[decal].y - level.table.layers[layer].decals[decal].values.height/2)) then
+                    collide = true;
+                end
+            end
+        end
+        
+    end
+
+    return collide
+
+end
+
 return level;

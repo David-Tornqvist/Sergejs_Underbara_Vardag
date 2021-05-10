@@ -16,12 +16,12 @@
       "gridCellsY": 40,
       "decals": [
         {
-          "x": 120,
-          "y": 80,
-          "texture": "bed.png",
+          "x": 96,
+          "y": 112,
+          "texture": "säng.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0}
+          "values": {"width": 25, "height": 22}
         }
       ],
       "folder": "../decals"
