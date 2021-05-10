@@ -5,9 +5,9 @@ local camera = {};
 camera.load = function ()
     local gameWidth = 1920;
 
-    screenScale = (love.graphics.getWidth()/gameWidth);
-    zoom = 5;
-    translate = {x = 0, y = 0};
+    ScreenScale = (love.graphics.getWidth()/gameWidth);
+    Zoom = 5;
+    Translate = {x = 0, y = 0};
     
     local isPan = false;
 
@@ -19,7 +19,7 @@ end
 
 camera.screenToWorldcords = function (x, y)
     
-    return {x = x/screenScale/zoom - translate.x, y = y/screenScale/zoom - translate.y};
+    return {x = x/ScreenScale/Zoom - Translate.x, y = y/ScreenScale/Zoom - Translate.y};
 
 end
 
@@ -27,7 +27,7 @@ end
 
 camera.worldToScreencords = function (x, y)
     
-    return {x = x*screenScale*zoom - translate.x, y = y*screenScale*zoom - translate.y};
+    return {x = x*ScreenScale*Zoom - Translate.x, y = y*ScreenScale*Zoom - Translate.y};
 
 end
 
@@ -35,28 +35,28 @@ end
 
 local function scrl(y)
 
-    --mouse-screencoords translated to mouse-worldcoords before zoom 
+    --mouse-screencoords Translated to mouse-worldcoords before Zoom 
     local bmouse = camera.screenToWorldcords(love.mouse.getX(), love.mouse.getY());
 
-    zoom = zoom + 0.1*y;
+    Zoom = Zoom + 0.1*y;
 
-    if zoom > 4 then
-        zoom = 4;
+    if Zoom > 4 then
+        Zoom = 4;
     end
 
-    if zoom < 0.06 then
-        zoom = 0.06
+    if Zoom < 0.06 then
+        Zoom = 0.06
     end
  
-    --mouse-screencoords translated to mouse-worldcoords before zoom
+    --mouse-screencoords Translated to mouse-worldcoords before Zoom
     local amouse = camera.screenToWorldcords(love.mouse.getX(), love.mouse.getY());
 
-    --diffrence to translate by such that mouse-worldcoords are unnafected
+    --diffrence to Translate by such that mouse-worldcoords are unnafected
     local d = {x = amouse.x - bmouse.x, y = amouse.y - bmouse.y}; 
 
 
-    translate.x = translate.x + d.x;
-    translate.y = translate.y + d.y;
+    Translate.x = Translate.x + d.x;
+    Translate.y = Translate.y + d.y;
 
 end
 
@@ -80,15 +80,15 @@ end
 
 local function updatePan ()
 
-    local mouse = {x = love.mouse.getX() / screenScale, y = love.mouse.getY() / screenScale;}; 
+    local mouse = {x = love.mouse.getX() / ScreenScale, y = love.mouse.getY() / ScreenScale;}; 
 
     if(isPan) then
-        translate.x = translate.x + (mouse.x - prevX)/screenScale/zoom;
-        translate.y = translate.y + (mouse.y - prevY)/screenScale/zoom;
+        Translate.x = Translate.x + (mouse.x - PrevX)/ScreenScale/Zoom;
+        Translate.y = Translate.y + (mouse.y - PrevY)/ScreenScale/Zoom;
     end    
 
-    prevX = mouse.x;
-    prevY = mouse.y;
+    PrevX = mouse.x;
+    PrevY = mouse.y;
 
 end  
 

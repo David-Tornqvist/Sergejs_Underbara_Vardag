@@ -45,8 +45,6 @@ local loadImgs = function (name)
         
             Quads[i] = {};
             
-            
-            
             local tileX = 1;
             local tilY = 1;
 
@@ -90,8 +88,7 @@ level.draw = function (name)
 
                     if level.table.layers[layer].data2D[i][b] ~= -1 then
 
-                        --love.graphics.rectangle("fill", coords.x, coords.y, level.table.layers[layer].gridCellWidth, level.table.layers[layer].gridCellHeight);
-                        love.graphics.draw(TileSetImg[layer], Quads[layer][level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y)
+                        love.graphics.draw(TileSetImg[layer], Quads[layer][level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y);
 
                     end
 
