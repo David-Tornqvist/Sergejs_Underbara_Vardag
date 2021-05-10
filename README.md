@@ -1,4 +1,4 @@
-# milj-spel
+# miljö-spel
 
 ett spel om miljön
 
