@@ -16,20 +16,48 @@ level.getIndex = function (name)
     
 end
 
-local loadDecals = function (name)
-    
-    local index = level.getIndex(name);
-    local level = levels[index];
+local loadDrawableImages = function (level)
 
     for i = 1, #level.table.layers do
 
-        if level.table.layers[i].decals ~= nil then
-            for b = 1, #level.table.layers[i].decals do
+        local thisLayer = level.table.layers[i];
+
+        if thisLayer.decals ~= nil then
+            for b = 1, #thisLayer.decals do
             
-                levels[index].table.layers[i].decals[b].image = 
-                love.graphics.newImage("content" ..  level.table.layers[1].folder:gsub('%.', '') .. "/" .. level.table.layers[i].decals[b].texture);
+                local thisDecal = thisLayer.decals[b];
+
+                thisDecal.image = 
+                love.graphics.newImage("content" ..  thisLayer.folder:gsub('%.', '') .. "/" .. thisDecal.texture);
     
             end
+        end
+    end
+end
+
+local createDecalDrawables = function (level)
+
+    for i = 1, #level.table.layers do
+        
+        local thisLayer = level.table.layers[i];
+
+        if thisLayer.decals ~= nil then
+
+            for b = 1, #thisLayer.decals do
+            
+                local thisDecal = thisLayer.decals[b];
+
+                if thisDecal.values.entity == false then
+                    Drawables[#Drawables+1] = {
+                        x = thisDecal.x,
+                        y = thisDecal.y,
+                        image = thisDecal.image,
+                        draw = function (i)
+                            love.graphics.draw(Drawables[i].image, Drawables[i].x - Drawables[i].image:getWidth()/2, Drawables[i].y - Drawables[i].image:getHeight()/2);
+                        end
+                    }                    
+                end
+            end     
         end
     end
 end
@@ -42,11 +70,13 @@ local loadTiles = function (name)
 
     for i = 1, #level.table.layers do
 
-        if level.table.layers[i].data2D ~= nil then
+        local thisLayer = level.table.layers[i];
+
+        if thisLayer.data2D ~= nil then
     
-            TileSetImg[i] = love.graphics.newImage("content/tiles/" .. level.table.layers[i].tileset .. ".png");
-            local tileWidth = TileSetImg[i]:getWidth() / level.table.layers[i].gridCellWidth;
-            local tileHeight = TileSetImg[i]:getHeight() /  level.table.layers[i].gridCellHeight;
+            TileSetImg[i] = love.graphics.newImage("content/tiles/" .. thisLayer.tileset .. ".png");
+            local tileWidth = TileSetImg[i]:getWidth() / thisLayer.gridCellWidth;
+            local tileHeight = TileSetImg[i]:getHeight() /  thisLayer.gridCellHeight;
         
             Quads[i] = {};
             
@@ -54,8 +84,8 @@ local loadTiles = function (name)
             local tilY = 1;
         
             for b = 1, tileWidth * tileHeight do
-                Quads[i][b] = love.graphics.newQuad(   (tileX - 1) * level.table.layers[i].gridCellWidth, (tilY - 1) * level.table.layers[i].gridCellHeight, 
-                                                    level.table.layers[i].gridCellWidth, level.table.layers[i].gridCellHeight, TileSetImg[i]:getDimensions());
+                Quads[i][b] = love.graphics.newQuad(   (tileX - 1) * thisLayer.gridCellWidth, (tilY - 1) * thisLayer.gridCellHeight, 
+                                                        thisLayer.gridCellWidth, thisLayer.gridCellHeight, TileSetImg[i]:getDimensions());
         
                 tileX = tileX + 1;
 
@@ -66,7 +96,18 @@ local loadTiles = function (name)
             end
         end
     end  
-end  
+end
+
+local loadDrawables = function (name)
+
+    local index = level.getIndex(name);
+    local level = levels[index];
+
+    loadDrawableImages(level);
+    createDecalDrawables(level);
+    entity.playerLoad();
+    
+end
 
 level.load = function (name)
    
@@ -79,8 +120,55 @@ level.load = function (name)
     loadTiles(CurrentLevel);
 
     Drawables = {};
-    loadDecals(CurrentLevel);
-    entity.playerLoad();
+    loadDrawables(CurrentLevel);
+
+end
+
+local drawTiles = function (level)
+    for layer = 1, #level.table.layers do
+
+        local thisLayer = level.table.layers[layer];
+
+        if thisLayer.data2D ~= nil then
+
+            local coords = {x = 0, y = 0};
+
+            for i = 1, #thisLayer.data2D do
+                for b = 1, #thisLayer.data2D[i] do
+
+                    if thisLayer.data2D[i][b] ~= -1 then
+
+                        love.graphics.draw(TileSetImg[layer], Quads[layer][thisLayer.data2D[i][b] + 1], coords.x, coords.y);
+
+                    end
+
+                    coords.x = coords.x + thisLayer.gridCellWidth;
+                    
+                    if ((coords.x + thisLayer.gridCellWidth) > (thisLayer.gridCellsX * thisLayer.gridCellWidth)) then
+                       
+                        coords.x = 0;
+                        coords.y = coords.y + thisLayer.gridCellHeight;
+
+                    end
+                end
+            end
+        end
+    end
+end
+
+local drawDrawables = function ()
+
+   for i = 1, #Drawables do
+       Drawables[i].draw(i);
+   end
+    
+end
+
+local sortDrawables = function ()
+    
+    table.sort(Drawables, function (a,b)
+        return a.y < b.y;
+    end);
 
 end
 
@@ -88,74 +176,47 @@ level.draw = function (name)
 
     local level = levels[level.getIndex(name)];
 
-    for layer = 1, #level.table.layers do
-        if level.table.layers[layer].data2D ~= nil then
+    drawTiles(level);
 
-            local coords = {x = 0, y = 0};
+    sortDrawables();
+    drawDrawables();
 
-            for i = 1, #level.table.layers[layer].data2D do
-                for b = 1, #level.table.layers[layer].data2D[i] do
-
-                    if level.table.layers[layer].data2D[i][b] ~= -1 then
-
-                        love.graphics.draw(TileSetImg[layer], Quads[layer][level.table.layers[layer].data2D[i][b] + 1], coords.x, coords.y);
-
-                    end
-
-                    coords.x = coords.x + level.table.layers[layer].gridCellWidth;
-                    
-                    if ((coords.x + level.table.layers[layer].gridCellWidth) > (level.table.layers[layer].gridCellsX * level.table.layers[layer].gridCellWidth)) then
-                       
-                        coords.x = 0;
-                        coords.y = coords.y + level.table.layers[layer].gridCellHeight;
-
-                    end
-                end
-            end
-        end
-    end
-
-    for layer = 1, #level.table.layers do
-        if level.table.layers[layer].decals ~= nil then
-
-
-            for decal = 1, #level.table.layers[layer].decals do
-
-                local d = level.table.layers[layer].decals[decal];
-                love.graphics.draw(d.image, d.x - d.image:getWidth()/2, d.y - d.image:getHeight()/2);
-
-            end 
-        end
-    end
 end
 
-local decalCollide = function (thisDecal,dx,dy)
+
+
+local decalCollide = function (level,dx,dy)
 
     local collide = false;
 
-    if thisDecal.values.collide then
-        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (thisDecal.x + thisDecal.values.width/2 + thisDecal.values.hox)) and
-            ((Player.coords.x + Player.hitbox.width/2 + dx) > (thisDecal.x - thisDecal.values.width/2 + thisDecal.values.hox)) and
-            ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (thisDecal.y + thisDecal.values.height/2 + thisDecal.values.hoy)) and
-            ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (thisDecal.y - thisDecal.values.height/2 + thisDecal.values.hoy)) then
-            collide = true;
-        end  
-    end
+    for layer = 1, #level.table.layers do
+
+        local thisLayer = level.table.layers[layer];
+
+        if thisLayer.decals ~= nil then
+            for decal = 1, #thisLayer.decals do
+    
+                local thisDecal = thisLayer.decals[decal];
+    
+                if thisDecal.values.collide then
+                    if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (thisDecal.x + thisDecal.values.width/2 + thisDecal.values.hox)) and
+                        ((Player.coords.x + Player.hitbox.width/2 + dx) > (thisDecal.x - thisDecal.values.width/2 + thisDecal.values.hox)) and
+                        ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (thisDecal.y + thisDecal.values.height/2 + thisDecal.values.hoy)) and
+                        ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (thisDecal.y - thisDecal.values.height/2 + thisDecal.values.hoy)) then
+                        collide = true;
+                    end  
+                end
+            end
+        end
+    end    
 
     return collide;
 
 end
 
-local tileCollide = function ()
-    
-end
+local tileCollide = function (level,dx,dy)
 
-level.isCollide = function (name,dx,dy) -- checks wether the new position would collide
-
-    local index = level.getIndex(name);
-    local level = levels[index];
-    
-    local collide = false;
+    local collide = false
 
     for layer = 1, #level.table.layers do
 
@@ -174,24 +235,27 @@ level.isCollide = function (name,dx,dy) -- checks wether the new position would 
 
                             collide = true;
                         end
-
                     end
                 end
             end
-        end
-        
-        if thisLayer.decals ~= nil then
-            for decal = 1, #thisLayer.decals do
-
-                if decalCollide(thisLayer.decals[decal],dx,dy) then
-                    collide = true
-                end
-
-            end
-        end
-        
+        end   
     end
 
+    return collide;
+
+end
+
+level.isCollide = function (name,dx,dy) -- checks wether the new position would collide
+
+    local index = level.getIndex(name);
+    local level = levels[index];
+
+    local collide = false;
+
+    if decalCollide(level,dx,dy) or tileCollide(level,dx,dy) then
+        collide = true;
+    end
+    
     return collide
 
 end
