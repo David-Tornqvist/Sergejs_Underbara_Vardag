@@ -13,6 +13,9 @@ love.load = function ()
     level.load("room");
     entity.playerLoad();
 
+
+    print(Window.width,Window.height);
+
 end
 
 love.keypressed = function (key)
@@ -201,16 +204,10 @@ love.draw = function ()
     
     love.graphics.translate(-Player.coords.x, -Player.coords.y);
     level.draw(CurrentLevel);
+    Player.draw();
 
-    love.graphics.circle("fill",0,0,"20");
+    --love.graphics.circle("fill",0,0,"20");
 
     --love.graphics.translate(-(Player.coords.x), -(Player.coords.y));
     --love.graphics.translate(-(Window.width/2 - Player.spawn.x), -(Window.height/2 - Player.spawn.y));
-
-    love.graphics.draw( Player.animation.texture, Player.animation.frames[Player.animation.pointer.y][Player.animation.pointer.x], 
-                        Player.coords.x - Player.animation.cellWidth/2, Player.coords.y - Player.animation.cellHeight/2);
-
-    
-
-
 end

@@ -62,6 +62,11 @@ entity.playerLoad = function ()
 
     Player.hitbox = {width = 10, height = 4, yOffset = 6};
 
+    Player.draw = function ()
+        love.graphics.draw( Player.animation.texture, Player.animation.frames[Player.animation.pointer.y][Player.animation.pointer.x], 
+        Player.coords.x - Player.animation.cellWidth/2, Player.coords.y - Player.animation.cellHeight/2);
+    end
+
 end
     
 return entity

@@ -17,11 +17,27 @@
       "decals": [
         {
           "x": 96,
+          "y": 128,
+          "texture": "planta.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0}
+        },
+        {
+          "x": 96,
+          "y": 120,
+          "texture": "soffa.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0}
+        },
+        {
+          "x": 96,
           "y": 112,
           "texture": "säng.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 25, "height": 22, "collide": true}
+          "values": {"width": 22, "height": 22, "collide": true, "hoy": 0, "hox": 0}
         }
       ],
       "folder": "../decals"

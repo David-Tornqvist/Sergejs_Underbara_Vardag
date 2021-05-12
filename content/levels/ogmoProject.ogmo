@@ -29,7 +29,9 @@
       "values": [
         {"name": "width", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
         {"name": "height", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
-        {"name": "collide", "definition": "Boolean", "display": 0, "defaults": false}
+        {"name": "collide", "definition": "Boolean", "display": 0, "defaults": false},
+        {"name": "hoy", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "hox", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100}
       ]
     },
     {

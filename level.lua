@@ -1,4 +1,5 @@
 local json = require("dependencies/json");
+local entity = require("entity");
 
 local level = {};
 
@@ -15,12 +16,10 @@ level.getIndex = function (name)
     
 end
 
-local loadImgs = function (name)
+local loadDecals = function (name)
     
     local index = level.getIndex(name);
     local level = levels[index];
-
-    Quads = {};
 
     for i = 1, #level.table.layers do
 
@@ -32,36 +31,42 @@ local loadImgs = function (name)
     
             end
         end
+    end
+end
+
+local loadTiles = function (name)
+
+    local index = level.getIndex(name);
+    local level = levels[index];
+    Quads = {};
+
+    for i = 1, #level.table.layers do
 
         if level.table.layers[i].data2D ~= nil then
-
+    
             TileSetImg[i] = love.graphics.newImage("content/tiles/" .. level.table.layers[i].tileset .. ".png");
             local tileWidth = TileSetImg[i]:getWidth() / level.table.layers[i].gridCellWidth;
             local tileHeight = TileSetImg[i]:getHeight() /  level.table.layers[i].gridCellHeight;
-
-
-            
-
         
             Quads[i] = {};
             
             local tileX = 1;
             local tilY = 1;
-
+        
             for b = 1, tileWidth * tileHeight do
                 Quads[i][b] = love.graphics.newQuad(   (tileX - 1) * level.table.layers[i].gridCellWidth, (tilY - 1) * level.table.layers[i].gridCellHeight, 
                                                     level.table.layers[i].gridCellWidth, level.table.layers[i].gridCellHeight, TileSetImg[i]:getDimensions());
-
+        
                 tileX = tileX + 1;
+
                 if tileX > tileWidth then
                     tileX = 1;
                     tilY = tilY + 1;
                 end
-
             end
         end
-    end
-end
+    end  
+end  
 
 level.load = function (name)
    
@@ -71,7 +76,12 @@ level.load = function (name)
     levels[#levels].table = json.decode(levels[#levels].text);
     CurrentLevel = name;
 
-    loadImgs(name);
+    loadTiles(CurrentLevel);
+
+    Drawables = {};
+    loadDecals(CurrentLevel);
+    entity.playerLoad();
+
 end
 
 level.draw = function (name)
@@ -92,7 +102,6 @@ level.draw = function (name)
 
                     end
 
-                    
                     coords.x = coords.x + level.table.layers[layer].gridCellWidth;
                     
                     if ((coords.x + level.table.layers[layer].gridCellWidth) > (level.table.layers[layer].gridCellsX * level.table.layers[layer].gridCellWidth)) then
@@ -120,6 +129,27 @@ level.draw = function (name)
     end
 end
 
+local decalCollide = function (thisDecal,dx,dy)
+
+    local collide = false;
+
+    if thisDecal.values.collide then
+        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (thisDecal.x + thisDecal.values.width/2 + thisDecal.values.hox)) and
+            ((Player.coords.x + Player.hitbox.width/2 + dx) > (thisDecal.x - thisDecal.values.width/2 + thisDecal.values.hox)) and
+            ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (thisDecal.y + thisDecal.values.height/2 + thisDecal.values.hoy)) and
+            ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (thisDecal.y - thisDecal.values.height/2 + thisDecal.values.hoy)) then
+            collide = true;
+        end  
+    end
+
+    return collide;
+
+end
+
+local tileCollide = function ()
+    
+end
+
 level.isCollide = function (name,dx,dy) -- checks wether the new position would collide
 
     local index = level.getIndex(name);
@@ -128,33 +158,35 @@ level.isCollide = function (name,dx,dy) -- checks wether the new position would 
     local collide = false;
 
     for layer = 1, #level.table.layers do
-        if level.table.layers[layer].name == "collide" then
-            for row = 1, #level.table.layers[layer].data2D do
-                for collumn = 1, #level.table.layers[layer].data2D[row] do
-                    if level.table.layers[layer].data2D[row][collumn] ~= -1  then
-                        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < ((collumn) * level.table.layers[layer].gridCellWidth)) and 
-                            ((Player.coords.x + Player.hitbox.width/2 + dx) > ((collumn - 1) * level.table.layers[layer].gridCellWidth)) and
-                            ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < ((row) * level.table.layers[layer].gridCellHeight)) and 
-                            ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > ((row - 1) * level.table.layers[layer].gridCellHeight)) then
+
+        local thisLayer = level.table.layers[layer];
+
+        if thisLayer.name == "collide" then
+            for row = 1, #thisLayer.data2D do
+                for collumn = 1, #thisLayer.data2D[row] do
+
+                    if thisLayer.data2D[row][collumn] ~= -1  then
+
+                        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < ((collumn) * thisLayer.gridCellWidth)) and 
+                            ((Player.coords.x + Player.hitbox.width/2 + dx) > ((collumn - 1) * thisLayer.gridCellWidth)) and
+                            ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < ((row) * thisLayer.gridCellHeight)) and 
+                            ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > ((row - 1) * thisLayer.gridCellHeight)) then
 
                             collide = true;
                         end
-                        --(Player.coords.x + Player.hitbox.width/2) < ((collumn + 1) * level.table.layers[layer].gridCellWidth)
+
                     end
                 end
             end
         end
         
-        if level.table.layers[layer].decals ~= nil then
-            for decal = 1, #level.table.layers[layer].decals do
-                if level.table.layers[layer].decals[decal].values.collide then
-                    if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (level.table.layers[layer].decals[decal].x + level.table.layers[layer].decals[decal].values.width/2)) and
-                        ((Player.coords.x + Player.hitbox.width/2 + dx) > (level.table.layers[layer].decals[decal].x - level.table.layers[layer].decals[decal].values.width/2)) and
-                        ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (level.table.layers[layer].decals[decal].y + level.table.layers[layer].decals[decal].values.height/2)) and
-                        ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (level.table.layers[layer].decals[decal].y - level.table.layers[layer].decals[decal].values.height/2)) then
-                        collide = true;
-                    end  
+        if thisLayer.decals ~= nil then
+            for decal = 1, #thisLayer.decals do
+
+                if decalCollide(thisLayer.decals[decal],dx,dy) then
+                    collide = true
                 end
+
             end
         end
         
