@@ -1,7 +1,6 @@
-local level = require "level";
+local level = require "level.level";
 local camera = require "dependencies.camera";
-local entity = require "entity"
-local mathFunc = require "dependencies.mathFunc"
+local entity = require "entity.entity"
 
 love.load = function ()
     camera.load();
@@ -11,7 +10,7 @@ love.load = function ()
                 
     
     level.load("room");
-    entity.playerLoad();
+    entity.load(Levels[level.getIndex(CurrentLevel)]);
 
 end
 
@@ -20,33 +19,6 @@ love.keypressed = function (key)
     if key == "escape" then
         love.event.quit();
     end
-
-    if key == "l" then
-        if(Player.animation.pointer.x ~= 6) then
-            Player.animation.pointer.x = Player.animation.pointer.x + 1;
-        end 
-    end
-    
-    if key == "k" then
-        if(Player.animation.pointer.x ~= 1) then
-            Player.animation.pointer.x = Player.animation.pointer.x - 1;
-        end    
-    end
-
-    if key == "u" then
-        if(Player.animation.pointer.y ~= 12) then
-            Player.animation.pointer.y = Player.animation.pointer.y + 1;
-        end
-        
-    end
-    
-    if key == "j" then
-        if(Player.animation.pointer.y ~= 1) then
-            Player.animation.pointer.y = Player.animation.pointer.y - 1;
-        end
-        
-    end
-
 end
 
 love.update = function (dt)
@@ -60,9 +32,10 @@ love.update = function (dt)
 
     Player.animationUpdate(dt);
 
+   
     
 
-   Player.collide(dt);
+   Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
 
     
 

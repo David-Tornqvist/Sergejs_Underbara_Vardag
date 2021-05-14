@@ -35,6 +35,7 @@
         {"name": "animated", "definition": "Boolean", "display": 0, "defaults": false},
         {"name": "animWidth", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
         {"name": "animHeight", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "animTime", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
         {"name": "type", "definition": "String", "display": 0, "defaults": "", "maxLength": 0, "trimWhitespace": true}
       ]
     },

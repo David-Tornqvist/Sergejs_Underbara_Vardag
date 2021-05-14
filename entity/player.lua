@@ -1,63 +1,11 @@
+local decals = require "level.decals";
+local tiles = require "level.tiles";
+local entity = require "entity.entity"
 local mathFunc = require "dependencies.mathFunc"
-local level = require "level"
 
-local entity = {}
+local player = {}
 
-local animationLoad = function (img,width,height,time)
-    
-    local animation = {};
-
-    animation.texture = love.graphics.newImage("content/animations/" .. img .. ".png");
-
-    animation.frames = {};
-
-    animation.t = 0;
-    animation.maxt = time;
-    animation.width = width;
-    animation.height = height;
-
-    
-
-    for anim = 1, height do
-        animation.frames[anim] = {};
-    end
-
-
-    local pointer = {x = 0, y = 0};
-    local cellWidth = animation.texture:getWidth() / width;
-    local cellHeight = animation.texture:getHeight() / height;
-
-    for anim = 1, height do
-        for frame = 1, width do
-            animation.frames[anim][frame] = love.graphics.newQuad(pointer.x, pointer.y, cellWidth, cellHeight, animation.texture:getDimensions());
-            pointer.x = pointer.x + cellWidth;
-        end    
-        pointer.x = 0;
-        pointer.y = pointer.y + cellHeight;
-    end
-
-    animation.pointer = {x = 1, y = 1};
-    animation.frametime = animation.maxt/animation.width;
-    animation.cellWidth = cellWidth;
-    animation.cellHeight = cellHeight;
-
-    return animation;
-
-end
-
-entity.createDrawable = function (name,x,y,img,animWidth,animHeight,time)
-
-    Drawables[#Drawables+1] = { name = name, x = x, y = y, animation = animationLoad(img,animWidth,animHeight,time),
-                                draw = function (i)
-
-                                    love.graphics.draw( Drawables[i].animation.texture, Drawables[i].animation.frames[Drawables[i].animation.pointer.y][Drawables[i].animation.pointer.x], 
-                                    Drawables[i].x - Drawables[i].animation.cellWidth/2, Drawables[i].y - Drawables[i].animation.cellHeight/2);
-                                    
-                                end};
-    
-end
-
-entity.playerLoad = function ()
+player.load = function ()
 
     Player = {};
 
@@ -69,9 +17,9 @@ entity.playerLoad = function ()
 
     Player.moveSpeed = 40;
 
-    Player.animation = animationLoad("sergej",6,12,Player.moveSpeed/80);
+    Player.animation = entity.animationLoad("sergej.png",6,12,Player.moveSpeed/80);
 
-    entity.createDrawable("player",Player.spawn.x,Player.spawn.y,"sergej",6,12,Player.moveSpeed/80);
+    entity.createDrawable("player",Player.spawn.x,Player.spawn.y,"sergej.png",6,12,Player.moveSpeed/80);
 
     Player.direction = 1;
 
@@ -213,13 +161,25 @@ entity.playerLoad = function ()
 
     end
 
-    Player.collide = function (dt)
-        if level.isCollide(CurrentLevel,Player.speed.x * dt,Player.speed.y * dt) == false then
+    Player.isCollide = function (level,dx,dy) -- checks wether the new position would collide
+    
+        local collide = false;
+    
+        if decals.collide(level,dx,dy) or tiles.collide(level,dx,dy) then
+            collide = true;
+        end
+        
+        return collide
+    
+    end
+
+    Player.collide = function (dt,level)
+        if Player.isCollide(level,Player.speed.x * dt,Player.speed.y * dt) == false then
             Player.coords.y = Player.coords.y + Player.speed.y * dt;
             Player.coords.x = Player.coords.x + Player.speed.x * dt;
-        elseif level.isCollide(CurrentLevel,Player.speed.x * dt,0) == false then    
+        elseif Player.isCollide(level,Player.speed.x * dt,0) == false then    
             Player.coords.x = Player.coords.x + Player.speed.x * dt;
-        elseif level.isCollide(CurrentLevel,0,Player.speed.y * dt) == false then    
+        elseif Player.isCollide(level,0,Player.speed.y * dt) == false then    
             Player.coords.y = Player.coords.y + Player.speed.y * dt;
         end
 
@@ -229,13 +189,4 @@ entity.playerLoad = function ()
     end
 end
 
-entity.findDrawableEntityIndex = function (name)
-    
-    for i = 1, #Drawables do
-        if name == Drawables[i].name then
-            return i;
-        end
-    end
-end
-    
-return entity
+return player;
