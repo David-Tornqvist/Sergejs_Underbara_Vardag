@@ -1,7 +1,6 @@
 local json = require "dependencies/json";
 local decals = require "level.decals";
 local tiles = require "level.tiles";
-local player = require "entity.player"
 
 local level = {};
 
@@ -43,7 +42,6 @@ level.load = function (name)
 
     Drawables = {};
     loadDrawables(CurrentLevel);
-    player.load();
 
 end
 
@@ -72,6 +70,18 @@ level.draw = function (name)
     sortDrawables();
     drawDrawables();
 
+end
+
+level.getDrawableIndex = function (name)
+    
+    for i = 1, #Drawables do
+        if name == Drawables[i].name then
+            return i;
+        end
+    end
+
+    return -1;
+    
 end
 
 return level;

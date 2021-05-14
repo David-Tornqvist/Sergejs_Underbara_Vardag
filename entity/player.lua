@@ -1,15 +1,16 @@
 local decals = require "level.decals";
 local tiles = require "level.tiles";
-local entity = require "entity.entity"
-local mathFunc = require "dependencies.mathFunc"
+local entity = require "entity.entity";
+local mathFunc = require "dependencies.mathFunc";
+local level = require "level.level"
 
 local player = {}
 
-player.load = function ()
+player.load = function (x,y)
 
     Player = {};
 
-    Player.spawn = {x = 32, y = 85};
+    Player.spawn = {x = x, y = y};
 
     Player.coords = {x = Player.spawn.x, y = Player.spawn.y};
 
@@ -19,13 +20,15 @@ player.load = function ()
 
     Player.animation = entity.animationLoad("sergej.png",6,12,Player.moveSpeed/80);
 
-    entity.createDrawable("player",Player.spawn.x,Player.spawn.y,"sergej.png",6,12,Player.moveSpeed/80);
+    CreateEntityDrawable("player",Player.spawn.x,Player.spawn.y,"sergej.png",6,12,Player.moveSpeed/80);
 
-    Player.direction = 1;
+    Player.direction = 5;
 
     Player.isMoving = false;
 
     Player.hitbox = {width = 10, height = 4, yOffset = 6};
+
+    Player.hold = "none";
 
     Player.animationUpdate = function (dt)
 
@@ -87,14 +90,14 @@ player.load = function ()
     end
 
     Player.speedUpdate = function ()
-        local diagonalSpeed = mathFunc.pythagoras(Player.moveSpeed)
+        local diagonalSpeed = mathFunc.pythagoras(Player.moveSpeed,0,0,"leg")
 
 
         if Player.direction == 1 then
             if Player.isMoving then
                 Player.speed.y = -Player.moveSpeed;
                 Player.speed.x = 0;
-                Player.animation.pointer.y = 5;     
+                Player.animation.pointer.y = 5;
             else
                 Player.animation.pointer.y = 11;
             end
@@ -187,6 +190,36 @@ player.load = function ()
         Drawables[entity.findDrawableEntityIndex("player")].y = Player.coords.y;
 
     end
+
+    Player.interact = function (level)
+
+        for i = 1, #level.table.layers do
+            local thisLayer = level.table.layers[i];
+            
+            if thisLayer.decals ~= nil then
+                for b = 1, #thisLayer.decals do
+                    local thisDecal = thisLayer.decals[b]; 
+                    if thisDecal.values.interact then
+
+                        if mathFunc.distance(Player.coords.x,Player.coords.y,thisDecal.x,thisDecal.y) < thisDecal.distance then
+
+                            entity.interract(thisDecal.values.type,thisDecal.identifier);
+                            
+                        end
+                    end
+                end 
+            end
+        end
+        
+    end
+
+    Player.removeHolding = function ()
+
+        Player.hold = "none"
+        table.remove(Drawables,level.getDrawableIndex("item"));
+        
+    end
+
 end
 
 return player;

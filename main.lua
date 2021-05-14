@@ -1,6 +1,9 @@
 local level = require "level.level";
 local camera = require "dependencies.camera";
-local entity = require "entity.entity"
+local entity = require "entity.entity";
+local crate = require "entity.crate";
+local player = require "entity.player";
+local items = require "entity.item"
 
 love.load = function ()
     camera.load();
@@ -9,8 +12,10 @@ love.load = function ()
                 height = love.graphics.getHeight()/ScreenScale/Zoom}
                 
     
-    level.load("room");
+    level.load("ICA");
     entity.load(Levels[level.getIndex(CurrentLevel)]);
+    player.load(40,90);
+    crate.load(Levels[level.getIndex(CurrentLevel)]);
 
 end
 
@@ -22,6 +27,8 @@ love.keypressed = function (key)
 end
 
 love.update = function (dt)
+
+    crate.disableGlow();
     
     Player.input();
 
@@ -35,7 +42,11 @@ love.update = function (dt)
    
     
 
-   Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
+    Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
+
+    Player.interact(Levels[level.getIndex(CurrentLevel)]);
+
+    items.update(dt);
 
     
 

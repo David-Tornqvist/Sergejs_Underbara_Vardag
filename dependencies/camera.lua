@@ -1,3 +1,5 @@
+--David Törnqvist
+
 local camera = {};
 
 

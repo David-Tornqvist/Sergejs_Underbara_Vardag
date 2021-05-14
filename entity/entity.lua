@@ -1,13 +1,33 @@
-
+local crate = require "entity.crate"
+local string = require "dependencies.split"
 local entity = {}
 
 entity.load = function (level)
     Identifier = 1;
     entity.createDrawables(level);
+
+    InterractFunctions = {
+        crate = function (item,drawableIndex)
+            crate.interract(item,drawableIndex);
+        end,
+    }
+
+    for i = 1, #level.table.layers do
+        local thisLayer = level.table.layers[i];
+        if thisLayer.decals ~= nil then
+            for b = 1, #thisLayer.decals do
+                local thisDecal = thisLayer.decals[b];
+    
+                local type = thisDecal.values.type;
+                local entityType = string.split(type,"_")[1];
+    
+                crate.load(entityType,thisDecal);
+
+            end    
+        end 
+    end
     
 end
-
-
 
 entity.animationLoad = function (img,width,height,time)
     
@@ -51,7 +71,7 @@ entity.animationLoad = function (img,width,height,time)
 
 end
 
-entity.createDrawable = function (name,x,y,img,animWidth,animHeight,time)
+CreateEntityDrawable = function (name,x,y,img,animWidth,animHeight,time)
 
     Drawables[#Drawables+1] = { name = name, x = x, y = y, animation = entity.animationLoad(img,animWidth,animHeight,time),
                                 draw = function (i)
@@ -77,7 +97,7 @@ entity.createDrawables = function (level)
 
                 if thisDecal.values.animated == true then
 
-                    entity.createDrawable(  thisDecal.values.type .. Identifier, thisDecal.x, thisDecal.y, thisDecal.texture, 
+                    CreateEntityDrawable(  thisDecal.values.type .. "_" .. Identifier, thisDecal.x, thisDecal.y, thisDecal.texture, 
                                             thisDecal.values.animWidth, thisDecal.values.animHeight, thisDecal.values.animTime);
                     thisDecal.identifier = Identifier;
                     Identifier = Identifier + 1;
@@ -100,4 +120,17 @@ entity.findDrawableEntityIndex = function (name)
     end
 end
     
+entity.interract = function (type,identifier)
+
+    local arr = string.split(type,"_");
+    local entityType = arr[1];
+    local argument = arr[2];
+
+    local drawableIndex = entity.findDrawableEntityIndex(type .. "_" .. identifier);
+
+    InterractFunctions[entityType](argument,drawableIndex);
+    
+    
+end
+
 return entity

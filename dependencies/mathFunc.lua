@@ -1,3 +1,5 @@
+--David Törnqvist
+
 local mathFunc = {}
 
 mathFunc.pow = function (base,exponential)
@@ -16,8 +18,19 @@ mathFunc.pow = function (base,exponential)
 
 end
 
-mathFunc.pythagoras = function (h)
-    return h/math.sqrt(2);
+mathFunc.pythagoras = function (h,a,b,result)
+    if result == "leg" then
+        return h/math.sqrt(2);    
+    end
+
+    if result == "hyp" then
+        return math.sqrt(mathFunc.pow(a,2) + mathFunc.pow(b,2));
+    end
+    
+end
+
+mathFunc.distance = function (x1,y1,x2,y2)
+    return mathFunc.pythagoras(0,x1 - x2, y1 - y2,"hyp")
 end
 
 return mathFunc

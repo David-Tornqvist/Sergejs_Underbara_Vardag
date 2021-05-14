@@ -17,11 +17,19 @@
       "decals": [
         {
           "x": 96,
-          "y": 184,
+          "y": 200,
           "texture": "ica_bananer.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 2, "type": "banana_crate"}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_banana", "interact": true}
+        },
+        {
+          "x": 112,
+          "y": 72,
+          "texture": "ica_biff.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_pork", "interact": true}
         }
       ],
       "folder": "../animations"
@@ -37,28 +45,28 @@
       "gridCellsY": 40,
       "decals": [
         {
-          "x": 96,
-          "y": 128,
+          "x": 232,
+          "y": 136,
           "texture": "planta.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "decal", "interact": false}
         },
         {
-          "x": 96,
-          "y": 120,
+          "x": 200,
+          "y": 104,
           "texture": "soffa.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "decal", "interact": false}
         },
         {
-          "x": 96,
-          "y": 112,
+          "x": 168,
+          "y": 144,
           "texture": "säng.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 22, "height": 22, "collide": true, "hoy": 0, "hox": 0, "animated": false}
+          "values": {"width": 22, "height": 22, "collide": true, "hoy": 0, "hox": 0, "animated": false, "type": "decal", "interact": false}
         }
       ],
       "folder": "../decals"
