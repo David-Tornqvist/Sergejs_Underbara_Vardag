@@ -19,7 +19,28 @@
   "layers": [
     {
       "definition": "decal",
-      "name": "objects",
+      "name": "animations",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "99050593",
+      "folder": "../animations",
+      "includeImageSequence": true,
+      "scaleable": false,
+      "rotatable": false,
+      "values": [
+        {"name": "width", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "height", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "collide", "definition": "Boolean", "display": 0, "defaults": false},
+        {"name": "hoy", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "hox", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "animated", "definition": "Boolean", "display": 0, "defaults": false},
+        {"name": "animWidth", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "animHeight", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "type", "definition": "String", "display": 0, "defaults": "", "maxLength": 0, "trimWhitespace": true}
+      ]
+    },
+    {
+      "definition": "decal",
+      "name": "decals",
       "gridSize": {"x": 8, "y": 8},
       "exportID": "22271753",
       "folder": "../decals",
@@ -32,7 +53,7 @@
         {"name": "collide", "definition": "Boolean", "display": 0, "defaults": false},
         {"name": "hoy", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
         {"name": "hox", "definition": "Integer", "display": 0, "defaults": 0, "bounded": false, "min": 0, "max": 100},
-        {"name": "entity", "definition": "Boolean", "display": 0, "defaults": false}
+        {"name": "animated", "definition": "Boolean", "display": 0, "defaults": false}
       ]
     },
     {
@@ -56,7 +77,7 @@
   ],
   "entities": [],
   "tilesets": [
-    {"label": "interior", "path": "../tiles/interior.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA4CAYAAABqtn+aAAADvklEQVR4Ae2awY3VMBCGXxdUQAHckPbEifteOXLjhhBtUAVdUAoN0EXQH+WLhnl2Ynu8itnnlazfHtuTme9NnETa29Obt8vtdks2zR3N5/aV2nv4/vH8vHz98HTXZKel5nvY5P+mZLmQV0B4e68x/iP66/vHxTbFZscCpfHvn5939f3WsXzvAKk2VIGQmPrYe6n1z3VaVHCAJqUPRCUJoBRI5qQ01p2NhwP46d37paRZ0IBCcwAFw8/l9vh1dmz7QwI8q3ABtgCVkBLxTXbmbCX56mKuRAHO2lcBkKRsZWCTKkmpkkYB0KL41t5/APKLWeWXtraeffyjqi4q0F8Hu69AErLrsUmVJPC0pgWa3SOf+NsBKgECREkKxd5L8WvVA2ROiXPdI4AWHH0AkrSF0dIHoPauABUYgXolaG/vNfbXbgGo14ijvxcHKBi2/G0fUNbWs49/1AO01+LH9BV4BE9zAkjVoC2Vxx7FhJ+1AgFIgKgWkpj62Hup9c91LMDcdVoAKnklrWsColWBJ30ogEBsBcc+AGrcBFAVEGlUVq4CS3xTsZse3sVKMpU8tlrtAhAItSo47EkBZO5MawGSNFoLza5X3PhprkAlqCRqtQRgid9agAKgpIc4AwWhJMkU3DOANX4NxP/vFjbB70/qElsG4CGA6OSQZ2AJrNSaqwByZqH2TKvtdzkDU3BKbFcB5AzsARAf0uaHSAms1JorAfaAKGgAlL+HAUji3H4a237J2Prgtn8YgFQfiUfGgJSPhwGopHvAs+Dl8yEA6lZVoi/R5FuvWet54D+ftsn1PU995vUgSD0gSmxXPESi75El+yfAEkoHaybAAzglU9UAdSu2No4Cc0SUxDj0miqAAIjqBLj941EryFcHUAn5xpPV23uNN/9D354lwa2vJb6SgIf6+egYvyUBjr5mrTw+UVBVGUmqj72XGv+j8zmN7+7W5Ra1ALH11M3/aYCjL5gAg7/QfgZScTrf6KM5W+osZA9q18jmfAXDv377rMDgb3BXbVROTm1F1fQz/oLhX799r0AS5EGRGjPXqvLJ3s3/9QSCEawJ6fWEalJfSVqAzP/58m2JNF3D+Q+Gf/32CTD4G0yAE2CQQHD7rMAJMEgguH1W4AQYJBDcPitwAgwSCG6fFdgDoP90y41lb/2Uw6eUfjD2Ibbv37x8+54p38y1mvE7BIRIEPstrI98mqmQ5DzrWtX4j8Q+xN4VELeVVSrG2nr2N/9DQIgEMQFG6Okco9K8csZ5e6/xdu1I+Jfv/QuYX7QXbQJnkgAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0},
+    {"label": "interior", "path": "../tiles/interior.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA4CAYAAABqtn+aAAAAAXNSR0IArs4c6QAAA05JREFUeJztmzFr20AUx/8u3uzFS9XBBrfCS0F4MV08Zehi6OKxQ79D8gm6F9Jvka1eCoZOnbQELcYQDMIkEA9RlyzS7AzynU8XybL0To0uvh8I6XTSk/Xn3bund0kDwBYaczmd4v4xeHa+17H4cVq/CnodC00AOD8bp17w86+LQ/1UmH0Kjh3BQZu3l+sWHDsCEAEA5l6IyaiN/rCLu8UG/WEXABLHZdtzL4gFBIDrm3+JH/bp49tEW+6nIttXwXLdSj3PxGOoEK8/7ALeai9gHTjW07M817GjgyL+nj0CiIUUBY3vOa4de/j+/loJCOR7uuy5y3VLinEh7j0xBoa8Jx7aSHhT3AaATm77brGBY0f7+70V3uS+Uc1x7AiTURwDJ6M23xw74oKJ3iaLVwQxfjK4B37/9iFx8dwLE225n4psX6ZoDI49LkrtYzFwuW7tvImGGFO5gHkvlNdfBSqzgNh7NhCHJtmet0JzbA0yg/LYGgBQk25k2XcDn2Tj848/jUP952fjSvPcphv4tc0DVT1XTkMosBmZ2attHqjyeSpjIJuFWQzUfhY+lv6wy2dlVfaAEnkg9QuiaJ5Xd0ol0mWH1/8ctiJVxsDSQ5jNnkX3quwWQYyBVJTEQDfweQpSZK/KbhmqioF18MCGuLmBf9Re2F6Uk5iFxW9XKst1K2HvJASU64EUTjoPBGjemFbVqV09sArYi7NyP5uRxUklry2eF79mTkJANuS+TDvYV2Pk3PBwe59LbnC3iOizsE4oWwPZkVoPfK30OhbmXgB4q2QHpb075suar5mL2azSXPEkhnCVGAGJlBrCVVWodaSwgFWVnHTFDGEitV0X1oVarwvrgBnCRBrY/YGluMidtuCddS6NQ9eJ1WXhN2hLA8D2hRfW9Rew6E1l1yUyyvr6C8g8TPa4tPbldEp64MVsJtvXWkA+C09GbVzfDPixPOuy/q/v3pMe+MsapNrXFTMLEzECEjECEjECEjECEjECEjECEjECEjECEjECEjECEjECEuECzr0QbuDDDfzUD33Wf/VwW/phVw+3mfZ1xdQDifB6IPuXUcbcCxP1QLmfimBfawHNqhwRM4lQGVuDLeI4+GwbW4PtoX7qtrOtNU8kzzjrCC6qcQAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0},
     {"label": "Tileset_test", "path": "../tiles/Tileset_test.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABD0lEQVRIDe2Tuw3CQBBEHRPggIDEObRASBGIhCqogzaIoDdKODSWnjW+O9uyzrIICFa7N7M7cx+7Ol2bUG/3bTwfh6BwDE55Li+disHP+xgICXnta+G+xpR+56WdGIwNMOwGYBj4fM8AwnM85JzqKT4x0J0h4nUOm+I10zPQgAAPF5nDS5z+9g0QvdSbsESgp7yOgXYtN9/9/bwLr1vThmrnVI/xaHUnyA1LIA76Ypw1PDkxoLE0/44BOxk60RAP3l0Rj+JCNJGdUw1Odl6YNHsGmDBQkhFfz4Aj+a515P9/0L0BV+NfQkmNXmIgwoVpdMzrHA+mnDXwhtJ61ECkR2zmnOqY11p4RREPLLGW9hefFbfrOSabtAAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
   ]
 }

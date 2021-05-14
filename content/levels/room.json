@@ -6,7 +6,28 @@
   "offsetY": 0,
   "layers": [
     {
-      "name": "objects",
+      "name": "animations",
+      "_eid": "99050593",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 40,
+      "gridCellsY": 40,
+      "decals": [
+        {
+          "x": 88,
+          "y": 192,
+          "texture": "ica_bananer.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "type": "banana_crate"}
+        }
+      ],
+      "folder": "../animations"
+    },
+    {
+      "name": "decals",
       "_eid": "22271753",
       "offsetX": 0,
       "offsetY": 0,
@@ -21,7 +42,7 @@
           "texture": "planta.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "entity": false}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false}
         },
         {
           "x": 96,
@@ -29,7 +50,7 @@
           "texture": "soffa.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "entity": false}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false}
         },
         {
           "x": 96,
@@ -37,7 +58,7 @@
           "texture": "säng.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 22, "height": 22, "collide": true, "hoy": 0, "hox": 0, "entity": false}
+          "values": {"width": 22, "height": 22, "collide": true, "hoy": 0, "hox": 0, "animated": false}
         }
       ],
       "folder": "../decals"

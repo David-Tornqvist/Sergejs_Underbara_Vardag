@@ -1,5 +1,4 @@
 local json = require("dependencies/json");
-local entity = require("entity");
 
 local level = {};
 
@@ -14,52 +13,6 @@ level.getIndex = function (name)
         end
     end
     
-end
-
-local loadDrawableImages = function (level)
-
-    for i = 1, #level.table.layers do
-
-        local thisLayer = level.table.layers[i];
-
-        if thisLayer.decals ~= nil then
-            for b = 1, #thisLayer.decals do
-            
-                local thisDecal = thisLayer.decals[b];
-
-                thisDecal.image = 
-                love.graphics.newImage("content" ..  thisLayer.folder:gsub('%.', '') .. "/" .. thisDecal.texture);
-    
-            end
-        end
-    end
-end
-
-local createDecalDrawables = function (level)
-
-    for i = 1, #level.table.layers do
-        
-        local thisLayer = level.table.layers[i];
-
-        if thisLayer.decals ~= nil then
-
-            for b = 1, #thisLayer.decals do
-            
-                local thisDecal = thisLayer.decals[b];
-
-                if thisDecal.values.entity == false then
-                    Drawables[#Drawables+1] = {
-                        x = thisDecal.x,
-                        y = thisDecal.y,
-                        image = thisDecal.image,
-                        draw = function (i)
-                            love.graphics.draw(Drawables[i].image, Drawables[i].x - Drawables[i].image:getWidth()/2, Drawables[i].y - Drawables[i].image:getHeight()/2);
-                        end
-                    }                    
-                end
-            end     
-        end
-    end
 end
 
 local loadTiles = function (name)
@@ -98,6 +51,53 @@ local loadTiles = function (name)
     end  
 end
 
+local loadDrawableImages = function (level)
+
+    for i = 1, #level.table.layers do
+
+        local thisLayer = level.table.layers[i];
+
+        if thisLayer.decals ~= nil then
+            for b = 1, #thisLayer.decals do
+            
+                local thisDecal = thisLayer.decals[b];
+
+                thisDecal.image = 
+                love.graphics.newImage("content" ..  thisLayer.folder:gsub('%.', '') .. "/" .. thisDecal.texture);
+    
+            end
+        end
+    end
+end
+
+local createDecalDrawables = function (level)
+
+    for i = 1, #level.table.layers do
+        
+        local thisLayer = level.table.layers[i];
+
+        if thisLayer.decals ~= nil then
+
+            for b = 1, #thisLayer.decals do
+            
+                local thisDecal = thisLayer.decals[b];
+
+                if thisDecal.values.animated == false then
+                    Drawables[#Drawables+1] = {
+                        type = "decal",
+                        x = thisDecal.x,
+                        y = thisDecal.y,
+                        image = thisDecal.image,
+                        draw = function (i)
+                            love.graphics.draw(Drawables[i].image, Drawables[i].x - Drawables[i].image:getWidth()/2, Drawables[i].y - Drawables[i].image:getHeight()/2);
+                        end
+                    }                    
+                end
+            end     
+        end
+    end
+end
+
 local loadDrawables = function (name)
 
     local index = level.getIndex(name);
@@ -105,7 +105,6 @@ local loadDrawables = function (name)
 
     loadDrawableImages(level);
     createDecalDrawables(level);
-    entity.playerLoad();
     
 end
 
