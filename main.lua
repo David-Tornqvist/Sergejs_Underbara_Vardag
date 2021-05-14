@@ -4,6 +4,8 @@ local entity = require "entity.entity";
 local crate = require "entity.crate";
 local player = require "entity.player";
 local items = require "entity.item"
+local cart = require "entity.cartFunc"
+local cartFunc = require "entity.cartFunc"
 
 love.load = function ()
     camera.load();
@@ -16,6 +18,7 @@ love.load = function ()
     entity.load(Levels[level.getIndex(CurrentLevel)]);
     player.load(40,90);
     crate.load(Levels[level.getIndex(CurrentLevel)]);
+    cart.load();
 
 end
 
@@ -29,6 +32,7 @@ end
 love.update = function (dt)
 
     crate.disableGlow();
+    cartFunc.disableGlow();
     
     Player.input();
 

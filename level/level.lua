@@ -1,6 +1,7 @@
 local json = require "dependencies/json";
 local decals = require "level.decals";
 local tiles = require "level.tiles";
+local entity = require "entity.entity"
 
 local level = {};
 
@@ -58,6 +59,14 @@ local sortDrawables = function ()
     table.sort(Drawables, function (a,b)
         return a.y < b.y;
     end);
+
+    if Cart.drive then
+        local playerIndex = entity.findDrawableEntityIndex("player");
+        local cartIndex = entity.findDrawableEntityIndex("cart");
+        local player = Drawables[playerIndex];
+        Drawables[playerIndex] = Drawables[cartIndex];
+        Drawables[cartIndex] = player;
+    end
 
 end
 

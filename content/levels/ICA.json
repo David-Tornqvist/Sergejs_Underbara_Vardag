@@ -16,7 +16,7 @@
       "gridCellsY": 30,
       "decals": [
         {
-          "x": 328,
+          "x": 128,
           "y": 56,
           "texture": "ica_bananer.png",
           "originX": 0.5,
@@ -40,7 +40,7 @@
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_fish", "interact": true}
         },
         {
-          "x": 208,
+          "x": 88,
           "y": 56,
           "texture": "ica_gurka.png",
           "originX": 0.5,
@@ -48,7 +48,7 @@
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_cucumber", "interact": true}
         },
         {
-          "x": 168,
+          "x": 328,
           "y": 56,
           "texture": "ica_kyckling.png",
           "originX": 0.5,
@@ -56,7 +56,7 @@
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_chicken", "interact": true}
         },
         {
-          "x": 128,
+          "x": 168,
           "y": 56,
           "texture": "ica_rödbetor.png",
           "originX": 0.5,
@@ -64,7 +64,7 @@
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_roots", "interact": true}
         },
         {
-          "x": 88,
+          "x": 208,
           "y": 56,
           "texture": "ica_veg.png",
           "originX": 0.5,

@@ -13,7 +13,7 @@ crate.interract = function (item,drawableIndex)
 
     Drawables[drawableIndex].animation.pointer.x = 2;
 
-    if love.keyboard.isDown("e") then
+    if love.keyboard.isDown("space") then
         Player.removeHolding();
         Player.hold = item;
         CreateEntityDrawable("item",Player.coords.x, Player.coords.y, item .. ".png",2,1,0);
