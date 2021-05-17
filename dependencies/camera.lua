@@ -8,7 +8,7 @@ camera.load = function ()
     local gameWidth = 1920;
 
     ScreenScale = (love.graphics.getWidth()/gameWidth);
-    Zoom = 5;
+    Zoom = 6;
     Translate = {x = 0, y = 0};
     
     local isPan = false;

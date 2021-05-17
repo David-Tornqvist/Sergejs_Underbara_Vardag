@@ -11,8 +11,7 @@ love.load = function ()
     camera.load();
     
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
-                height = love.graphics.getHeight()/ScreenScale/Zoom}
-                
+                height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
     level.load("ICA");
     entity.load(Levels[level.getIndex(CurrentLevel)]);
@@ -74,10 +73,4 @@ love.draw = function ()
     
     love.graphics.translate(-Player.coords.x, -Player.coords.y);
     level.draw(CurrentLevel);
-    --Player.draw();
-
-    --love.graphics.circle("fill",0,0,"20");
-
-    --love.graphics.translate(-(Player.coords.x), -(Player.coords.y));
-    --love.graphics.translate(-(Window.width/2 - Player.spawn.x), -(Window.height/2 - Player.spawn.y));
 end
