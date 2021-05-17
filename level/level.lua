@@ -4,7 +4,7 @@ local tiles = require "level.tiles";
 local entity = require "entity.entity";
 local player = require "entity.player";
 local cart = require "entity.cartFunc";
-local switch = require "entity.switch"
+local fog = require "entity.fog";
 
 local level = {};
 
@@ -20,6 +20,8 @@ level.getIndex = function (name)
     end
     
 end
+
+local GetIndex = level.getIndex;
 
 local loadDrawables = function (name)
 
@@ -52,11 +54,19 @@ level.load = function (name)
         cart.load();
     end
 
-    if name == "house" then
+    if name == "bedroom" then
         player.load(52,52);
     end
 
+    if name == "house" then
+       player.load(Player.coords.x,Player.coords.y + 8); 
+    end
+
+    entity.load(Levels[GetIndex(CurrentLevel)]);
+
 end
+
+LevelLoad = level.load;
 
 local drawDrawables = function ()
 
@@ -99,6 +109,7 @@ level.draw = function (name)
 
     sortDrawables();
     drawDrawables();
+    fog.draw();
 
 end
 

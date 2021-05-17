@@ -13,8 +13,7 @@ love.load = function ()
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
-    level.load("house");
-    entity.load(Levels[level.getIndex(CurrentLevel)]);
+    level.load("bedroom");
 
     SpacePressed = false;
 
