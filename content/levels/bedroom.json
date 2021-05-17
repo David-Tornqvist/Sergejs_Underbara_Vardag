@@ -16,7 +16,7 @@
       "gridCellsY": 32,
       "decals": [
         {
-          "x": 40,
+          "x": 36,
           "y": 96,
           "texture": "lampknapp_02.png",
           "originX": 0.5,

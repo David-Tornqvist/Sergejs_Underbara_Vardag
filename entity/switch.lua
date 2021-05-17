@@ -5,7 +5,7 @@ local switch = {};
 switch.load = function (entityType,thisDecal)
 
     if entityType == "switch" then
-        thisDecal.distance = 10;
+        thisDecal.distance = 14;
         local buttonNumber = string.split(thisDecal.values.type, "_")[2];
 
         print(buttonNumber);

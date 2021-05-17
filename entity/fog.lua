@@ -8,20 +8,29 @@ fog.draw = function ()
         if Drawables[i].status == false then
             local buttonNumber = string.split(Drawables[i].name, "_")[2];
 
+            local origin = {x = 0, y = 0}
+
             love.graphics.setColor(0,0,0,0.8);
 
-            local rect = {x = 0, y = 0, width = 0, height = 0};
-            
-
             if buttonNumber == "1" then
-                rect = {x = 27, y = 11, width = 90, height = 133};
+                love.graphics.rectangle("fill",27 + origin.x,11 + origin.y,90,133);
             end
 
             if buttonNumber == "2" then
-                rect = {x = 27, y = 19, width = 92, height = 133};
+                love.graphics.rectangle("fill",27 + origin.x,0 + origin.y,93,152);
             end
 
-            love.graphics.rectangle("fill",rect.x,rect.y,rect.width,rect.height);
+            if buttonNumber == "4" then
+                love.graphics.rectangle("fill",115 + origin.x,152 + origin.y,93,56);
+            end
+
+            if buttonNumber == "3" then
+                love.graphics.rectangle("fill",120 + origin.x,0 + origin.y,88,152);
+            end
+
+            if buttonNumber == "5" then
+                love.graphics.rectangle("fill",208 + origin.x,32 + origin.y,72,152);
+            end
 
             love.graphics.setColor(1,1,1,1);
         end

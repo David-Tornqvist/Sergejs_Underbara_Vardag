@@ -79,10 +79,6 @@ end
 CreateEntityDrawable = function (name,x,y,img,animWidth,animHeight,time)
 
     local type = string.split(name,"_")[1];
-    
-    if type == "switch" then
-        x = x - 4;
-    end
 
     Drawables[#Drawables+1] = { name = name, x = x, y = y, animation = entity.animationLoad(img,animWidth,animHeight,time),
                                 draw = function (i)
