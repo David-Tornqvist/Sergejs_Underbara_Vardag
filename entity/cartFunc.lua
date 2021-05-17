@@ -26,14 +26,20 @@ cartFunc.load = function ()
         Drawables[index].animation.pointer.x = 6;
         Drawables[index].animation.pointer.y = 2;
 
-        if love.keyboard.isDown("space") then
+        if love.keyboard.isDown("space") and Player.hold == "none" and SpacePressed == false then
+            Cart.drive = true;
+            SpacePressed = true;  
+        end
 
-            
-            if Player.hold == "none" then
-                Drawables[index].x = Player.coords.x + 10;
-                Drawables[index].y = Player.coords.y - 3;
-                Cart.drive = true; 
-            end
+        if Cart.drive then
+            Drawables[index].x = Player.coords.x + 10;
+            Drawables[index].y = Player.coords.y - 3;
+        end
+
+        if love.keyboard.isDown("space") and SpacePressed == false then
+            Cart.items[#Cart.items+1] = Player.hold;
+            Player.removeHolding();
+            SpacePressed = true; 
         end
 
     end

@@ -19,6 +19,8 @@ love.load = function ()
     player.load(40,90);
     cart.load();
 
+    SpacePressed = false;
+
 end
 
 love.keypressed = function (key)
@@ -26,7 +28,22 @@ love.keypressed = function (key)
     if key == "escape" then
         love.event.quit();
     end
+
+    if key == "k" then
+        for i = 1, #Cart.items do
+            print(Cart.items[i])
+        end
+    end
+
 end
+
+love.keyreleased = function (key)
+    if key == "space" then
+        SpacePressed = false;
+        Cart.drive = false; 
+    end
+end
+
 
 love.update = function (dt)
 
@@ -37,22 +54,14 @@ love.update = function (dt)
 
     Player.speedUpdate();
 
-    
-
-
     Player.animationUpdate(dt);
-
-   
-    
 
     Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
 
     Player.interact(Levels[level.getIndex(CurrentLevel)]);
 
     items.update(dt);
-
     
-
 end
 
 
