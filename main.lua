@@ -3,9 +3,9 @@ local camera = require "dependencies.camera";
 local entity = require "entity.entity";
 local crate = require "entity.crate";
 local player = require "entity.player";
-local items = require "entity.item"
-local cart = require "entity.cartFunc"
-local cartFunc = require "entity.cartFunc"
+local items = require "entity.item";
+local cart = require "entity.cartFunc";
+local cartFunc = require "entity.cartFunc";
 
 love.load = function ()
     camera.load();
@@ -13,10 +13,8 @@ love.load = function ()
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
-    level.load("ICA");
+    level.load("house");
     entity.load(Levels[level.getIndex(CurrentLevel)]);
-    player.load(40,90);
-    cart.load();
 
     SpacePressed = false;
 
@@ -42,7 +40,6 @@ love.keyreleased = function (key)
         Cart.drive = false; 
     end
 end
-
 
 love.update = function (dt)
 

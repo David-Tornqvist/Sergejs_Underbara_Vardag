@@ -5,8 +5,10 @@ local cartFunc = {}
 cartFunc.disableGlow = function ()
     local index = entity.findDrawableEntityIndex("cart");
 
-    Drawables[index].animation.pointer.x = 3;
-    Drawables[index].animation.pointer.y = 2;
+    if index ~= nil then
+        Drawables[index].animation.pointer.x = 3;
+        Drawables[index].animation.pointer.y = 2;
+    end
 end
 
 cartFunc.load = function ()

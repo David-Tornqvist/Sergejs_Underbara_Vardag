@@ -2,8 +2,6 @@
 
 local camera = {};
 
-
-
 camera.load = function ()
     local gameWidth = 1920;
 
@@ -14,10 +12,7 @@ camera.load = function ()
     local isPan = false;
 
     love.graphics.setDefaultFilter("nearest","nearest");
-    
 end
-
-
 
 camera.screenToWorldcords = function (x, y)
     
@@ -25,15 +20,11 @@ camera.screenToWorldcords = function (x, y)
 
 end
 
-
-
 camera.worldToScreencords = function (x, y)
     
     return {x = x*ScreenScale*Zoom - Translate.x, y = y*ScreenScale*Zoom - Translate.y};
 
 end
-
-
 
 local function scrl(y)
 
@@ -62,23 +53,17 @@ local function scrl(y)
 
 end
 
-
-
 local function setPan(button)
 
     if(button == 3) then isPan = true; end
 
 end
 
-
-
 local function resPan(button)
 
     if(button == 3) then isPan = false; end
 
 end
-
-
 
 local function updatePan ()
 
@@ -94,8 +79,6 @@ local function updatePan ()
 
 end  
 
-
-
 camera.update = function (type, value)
     
     if(type == "scrl") then scrl(value);
@@ -104,7 +87,5 @@ camera.update = function (type, value)
     elseif(type == "pan") then updatePan(); end    
 
 end
-
-
 
 return camera;

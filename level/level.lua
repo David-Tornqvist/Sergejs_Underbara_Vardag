@@ -1,7 +1,9 @@
 local json = require "dependencies/json";
 local decals = require "level.decals";
 local tiles = require "level.tiles";
-local entity = require "entity.entity"
+local entity = require "entity.entity";
+local player = require "entity.player";
+local cart = require "entity.cartFunc";
 
 local level = {};
 
@@ -44,6 +46,15 @@ level.load = function (name)
     Drawables = {};
     loadDrawables(CurrentLevel);
 
+    if name == "ICA" then
+        player.load(40,90);
+        cart.load();
+    end
+
+    if name == "house" then
+        player.load(100,100);
+    end
+
 end
 
 local drawDrawables = function ()
@@ -60,14 +71,15 @@ local sortDrawables = function ()
         return a.y < b.y;
     end);
 
-    if Cart.drive then
-        local playerIndex = entity.findDrawableEntityIndex("player");
-        local cartIndex = entity.findDrawableEntityIndex("cart");
-        local player = Drawables[playerIndex];
-        Drawables[playerIndex] = Drawables[cartIndex];
-        Drawables[cartIndex] = player;
+    if Cart ~= nil then
+        if Cart.drive then
+            local playerIndex = entity.findDrawableEntityIndex("player");
+            local cartIndex = entity.findDrawableEntityIndex("cart");
+            local player = Drawables[playerIndex];
+            Drawables[playerIndex] = Drawables[cartIndex];
+            Drawables[cartIndex] = player;
+        end 
     end
-
 end
 
 level.draw = function (name)
@@ -92,5 +104,7 @@ level.getDrawableIndex = function (name)
     return -1;
     
 end
+
+GetDrawableIndex = level.getDrawableIndex;
 
 return level;

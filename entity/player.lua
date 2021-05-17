@@ -2,7 +2,6 @@ local decals = require "level.decals";
 local tiles = require "level.tiles";
 local entity = require "entity.entity";
 local mathFunc = require "dependencies.mathFunc";
-local level = require "level.level";
 
 local player = {}
 
@@ -211,16 +210,17 @@ player.load = function (x,y)
             end
         end
 
-        if mathFunc.distance(Player.coords.x,Player.coords.y,Drawables[entity.findDrawableEntityIndex("cart")].x,Drawables[entity.findDrawableEntityIndex("cart")].y) < Cart.distance then
-            Cart.interract();
+        if Drawables[entity.findDrawableEntityIndex("cart")] ~= nil then
+            if mathFunc.distance(Player.coords.x,Player.coords.y,Drawables[entity.findDrawableEntityIndex("cart")].x,Drawables[entity.findDrawableEntityIndex("cart")].y) < Cart.distance then
+                Cart.interract();
+            end 
         end
-
     end
 
     Player.removeHolding = function ()
 
         Player.hold = "none"
-        table.remove(Drawables,level.getDrawableIndex("item"));
+        table.remove(Drawables,GetDrawableIndex("item"));
         
     end
 
