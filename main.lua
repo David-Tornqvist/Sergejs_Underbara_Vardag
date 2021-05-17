@@ -37,7 +37,10 @@ end
 love.keyreleased = function (key)
     if key == "space" then
         SpacePressed = false;
-        Cart.drive = false; 
+
+        if Cart ~= nil then
+            Cart.drive = false;  
+        end
     end
 end
 

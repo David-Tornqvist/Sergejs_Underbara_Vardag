@@ -4,6 +4,7 @@ local tiles = require "level.tiles";
 local entity = require "entity.entity";
 local player = require "entity.player";
 local cart = require "entity.cartFunc";
+local switch = require "entity.switch"
 
 local level = {};
 
@@ -52,23 +53,31 @@ level.load = function (name)
     end
 
     if name == "house" then
-        player.load(100,100);
+        player.load(52,52);
     end
 
 end
 
 local drawDrawables = function ()
 
-   for i = 1, #Drawables do
-       Drawables[i].draw(i);
-   end
-    
+    for i = 1, #Drawables do
+        Drawables[i].draw(i);
+    end
+
 end
 
 local sortDrawables = function ()
     
     table.sort(Drawables, function (a,b)
-        return a.y < b.y;
+        
+        if a.name == "floor" then
+            return true;
+        elseif b.name == "floor" then
+            return false;    
+        else
+            return a.y < b.y;    
+        end
+        
     end);
 
     if Cart ~= nil then

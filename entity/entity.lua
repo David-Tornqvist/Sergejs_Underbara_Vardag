@@ -1,5 +1,6 @@
 local crate = require "entity.crate"
 local string = require "dependencies.split"
+local switch = require "entity.switch"
 local entity = {}
 
 entity.load = function (level)
@@ -10,6 +11,9 @@ entity.load = function (level)
         crate = function (item,drawableIndex)
             crate.interract(item,drawableIndex);
         end,
+        switch = function (type,drawableIndex)
+            switch.interract(type,drawableIndex);
+        end
     }
 
     for i = 1, #level.table.layers do
@@ -22,6 +26,7 @@ entity.load = function (level)
                 local entityType = string.split(type,"_")[1];
     
                 crate.load(entityType,thisDecal);
+                switch.load(entityType,thisDecal);
 
             end    
         end 
@@ -73,6 +78,12 @@ end
 
 CreateEntityDrawable = function (name,x,y,img,animWidth,animHeight,time)
 
+    local type = string.split(name,"_")[1];
+    
+    if type == "switch" then
+        x = x - 4;
+    end
+
     Drawables[#Drawables+1] = { name = name, x = x, y = y, animation = entity.animationLoad(img,animWidth,animHeight,time),
                                 draw = function (i)
 
@@ -119,6 +130,8 @@ entity.findDrawableEntityIndex = function (name)
         end
     end
 end
+
+FindDrawableEntityIndex = entity.findDrawableEntityIndex;
     
 entity.interract = function (type,identifier)
 

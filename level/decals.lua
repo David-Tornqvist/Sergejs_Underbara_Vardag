@@ -36,14 +36,17 @@ decals.createDrawables = function (level)
 
                 if thisDecal.values.animated == false then
                     Drawables[#Drawables+1] = {
-                        type = "decal",
+                        name = "decal",
                         x = thisDecal.x,
                         y = thisDecal.y,
                         image = thisDecal.image,
                         draw = function (i)
                             love.graphics.draw(Drawables[i].image, Drawables[i].x - Drawables[i].image:getWidth()/2, Drawables[i].y - Drawables[i].image:getHeight()/2);
                         end
-                    }                    
+                    }
+                    if thisDecal.values.type ~= nil then
+                        Drawables[#Drawables].name = thisDecal.values.type; 
+                    end                      
                 end
             end     
         end
