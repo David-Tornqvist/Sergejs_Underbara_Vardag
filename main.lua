@@ -17,7 +17,6 @@ love.load = function ()
     level.load("ICA");
     entity.load(Levels[level.getIndex(CurrentLevel)]);
     player.load(40,90);
-    crate.load(Levels[level.getIndex(CurrentLevel)]);
     cart.load();
 
 end

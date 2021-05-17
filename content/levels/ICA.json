@@ -70,6 +70,22 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_veg", "interact": true}
+        },
+        {
+          "x": 40,
+          "y": 56,
+          "texture": "lampknapp_01.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 16,
+          "y": 80,
+          "texture": "lampknapp_02.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
         }
       ],
       "folder": "../animations"
