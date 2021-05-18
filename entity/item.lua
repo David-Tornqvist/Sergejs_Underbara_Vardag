@@ -12,8 +12,8 @@ item.update = function (dt)
     
     if index ~= -1 then
        
-        Drawables[index].x = Player.coords.x + math.cos(itemAnimation) * 10;
-        Drawables[index].y = Player.coords.y + 2 + math.sin(itemAnimation) * 10;
+        Drawables[index].x = Player.coords.x + math.cos(itemAnimation) * 12;
+        Drawables[index].y = Player.coords.y + 2 + math.sin(itemAnimation) * 12;
         
     end
 end

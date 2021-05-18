@@ -13,7 +13,7 @@ love.load = function ()
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
-    level.load("bedroom");
+    level.load("ICA2");
 
     SpacePressed = false;
 

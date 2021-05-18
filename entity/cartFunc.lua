@@ -11,11 +11,11 @@ cartFunc.disableGlow = function ()
     end
 end
 
-cartFunc.load = function ()
+cartFunc.load = function (x,y)
 
     Cart = {items = {},distance = 20,drive = false};
 
-    CreateEntityDrawable("cart",60,100,"vagn.png",6,3,0);
+    CreateEntityDrawable("cart",x,y,"vagn.png",6,3,0);
 
     local index = entity.findDrawableEntityIndex("cart");
 
