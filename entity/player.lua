@@ -25,7 +25,7 @@ player.load = function (x,y)
 
     Player.isMoving = false;
 
-    Player.hitbox = {width = 10, height = 4, yOffset = 6};
+    Player.hitbox = {width = 10, height = 4, yOffset = 6,xOffset = 0};
 
     Player.hold = "none";
 

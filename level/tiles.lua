@@ -80,8 +80,8 @@ tiles.collide = function (level,dx,dy)
 
                     if thisLayer.data2D[row][collumn] ~= -1  then
 
-                        if  ((Player.coords.x - Player.hitbox.width/2 + dx) < ((collumn) * thisLayer.gridCellWidth)) and 
-                            ((Player.coords.x + Player.hitbox.width/2 + dx) > ((collumn - 1) * thisLayer.gridCellWidth)) and
+                        if  ((Player.coords.x + Player.hitbox.xOffset - Player.hitbox.width/2 + dx) < ((collumn) * thisLayer.gridCellWidth)) and 
+                            ((Player.coords.x + Player.hitbox.xOffset + Player.hitbox.width/2 + dx) > ((collumn - 1) * thisLayer.gridCellWidth)) and
                             ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < ((row) * thisLayer.gridCellHeight)) and 
                             ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > ((row - 1) * thisLayer.gridCellHeight)) then
 

@@ -56,7 +56,7 @@ level.load = function (name)
 
     if name == "ICA2" then
         player.load(100,100);
-        cart.load(100,100);
+        cart.load(100,90);
     end
 
     if name == "bedroom" then

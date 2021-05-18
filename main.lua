@@ -39,6 +39,7 @@ love.keyreleased = function (key)
 
         if Cart ~= nil then
             Cart.drive = false;  
+            Player.hitbox = {width = 10, height = 4, yOffset = 6,xOffset = 0};
         end
     end
 end

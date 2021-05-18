@@ -67,8 +67,8 @@ decals.collide = function (level,dx,dy)
                 local thisDecal = thisLayer.decals[decal];
     
                 if thisDecal.values.collide then
-                    if  ((Player.coords.x - Player.hitbox.width/2 + dx) < (thisDecal.x + thisDecal.values.width/2 + thisDecal.values.hox)) and
-                        ((Player.coords.x + Player.hitbox.width/2 + dx) > (thisDecal.x - thisDecal.values.width/2 + thisDecal.values.hox)) and
+                    if  ((Player.coords.x + Player.hitbox.xOffset - Player.hitbox.width/2 + dx) < (thisDecal.x + thisDecal.values.width/2 + thisDecal.values.hox)) and
+                        ((Player.coords.x + Player.hitbox.xOffset + Player.hitbox.width/2 + dx) > (thisDecal.x - thisDecal.values.width/2 + thisDecal.values.hox)) and
                         ((Player.coords.y + Player.hitbox.yOffset - Player.hitbox.height/2 + dy) < (thisDecal.y + thisDecal.values.height/2 + thisDecal.values.hoy)) and
                         ((Player.coords.y + Player.hitbox.yOffset + Player.hitbox.height/2 + dy) > (thisDecal.y - thisDecal.values.height/2 + thisDecal.values.hoy)) then
                         collide = true;

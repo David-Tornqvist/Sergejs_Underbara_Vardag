@@ -30,7 +30,11 @@ cartFunc.load = function (x,y)
 
         if love.keyboard.isDown("space") and Player.hold == "none" and SpacePressed == false then
             Cart.drive = true;
-            SpacePressed = true;  
+            Player.hitbox = {width = 24, height = 12, yOffset = 5,xOffset = 7};
+            SpacePressed = true;
+            
+            Player.coords.x = Drawables[index].x - 10;
+            Player.coords.y = Drawables[index].y + 3;
         end
 
         if Cart.drive then
