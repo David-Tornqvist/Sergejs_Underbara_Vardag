@@ -13,7 +13,7 @@ love.load = function ()
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
-    level.load("ICA2");
+    level.load("outside");
 
     SpacePressed = false;
 
@@ -27,7 +27,7 @@ love.keypressed = function (key)
 
     if key == "k" then
         for i = 1, #Cart.items do
-            print(Cart.items[i])
+            print(Cart.items[i]);
         end
     end
 

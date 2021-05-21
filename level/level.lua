@@ -67,6 +67,10 @@ level.load = function (name)
        player.load(Player.coords.x,Player.coords.y + 8); 
     end
 
+    if name == "outside" then
+        player.load(52,52);
+    end
+
     entity.load(Levels[GetIndex(CurrentLevel)]);
 
 end

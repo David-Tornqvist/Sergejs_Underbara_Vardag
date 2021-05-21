@@ -21,7 +21,7 @@ fog.draw = function ()
             end
 
             if buttonNumber == "4" then
-                love.graphics.rectangle("fill",115 + origin.x,152 + origin.y,93,56);
+                love.graphics.rectangle("fill",115 + origin.x,152 + origin.y,93,100);
             end
 
             if buttonNumber == "3" then
