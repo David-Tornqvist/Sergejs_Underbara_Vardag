@@ -16,7 +16,7 @@ love.load = function ()
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
     cutscene.load();
-    level.load("bedroom");
+    level.load("outside_copy");
     
 
     SpacePressed = false;

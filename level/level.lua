@@ -71,7 +71,7 @@ level.load = function (name)
        player.load(Player.coords.x,Player.coords.y + 8); 
     end
 
-    if name == "outside" then
+    if name == "outside" or "outside_copy" then
         loadAnim.load(700);
         player.load(200,220);
     end
