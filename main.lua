@@ -8,9 +8,11 @@ local cart = require "entity.cartFunc";
 local cartFunc = require "entity.cartFunc";
 local loadAnim = require "loadAnim";
 local cutscene = require "cutscene";
+local font = require "font";
 
 love.load = function ()
     camera.load();
+    font.load();
     
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
@@ -89,6 +91,8 @@ love.draw = function ()
 
 
     love.graphics.pop();
+    Font.draw("TEST",20,20);
+
 
     Cutscene.draw();
     
