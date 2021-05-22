@@ -10,6 +10,7 @@ local loadAnim = require "loadAnim";
 local switch = require "entity.switch";
 local cutscene = require "cutscene";
 local quest = require "quest";
+local credits = require "credits";
 
 local level = {};
 
@@ -187,7 +188,9 @@ level.next = function (dt)
         elseif CurrentLevel == "outside_copy" then
             level.load("ICA2");
         elseif CurrentLevel == "ICA2" then
-            level.load("recycle_station");    
+            level.load("recycle_station");
+        elseif CurrentLevel == "recycle_station" then
+            credits.load();        
         end
     end
     

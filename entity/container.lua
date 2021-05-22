@@ -1,6 +1,7 @@
 local string = require "dependencies.split";
 local quest = require "quest";
 local credits = require "credits";
+local loadAnim = require "loadAnim";
 
 local container = {};
 
@@ -36,6 +37,10 @@ container.interract = function (type,drawableIndex)
 
     if love.keyboard.isDown("space") and SpacePressed == false then
 
+
+        print(type);
+        print(Player.hold);
+
         if Player.hold ~= "none" then
             if type == "glassColored" and Player.hold == "bottle"  then
                 PlayerProgress.recycle = PlayerProgress.recycle + 1;
@@ -44,16 +49,19 @@ container.interract = function (type,drawableIndex)
             elseif type == "plastic" and Player.hold == "ketchup" then
                 PlayerProgress.recycle = PlayerProgress.recycle + 1;
             elseif type == "metal" and Player.hold == "tincan" then
-                PlayerProgress.recycle = PlayerProgress.recycle + 1;        
+                PlayerProgress.recycle = PlayerProgress.recycle + 1; 
+            elseif type == "glassUncolored" and Player.hold == "jar" then           
+                PlayerProgress.recycle = PlayerProgress.recycle + 1;
             end
             Sorted = Sorted + 1;
         end
         
-        quest.set({"#TERVINN",Sorted .. "/8",""});
+        quest.set({"#TERVINN",Sorted .. "/6",""});
         Player.removeHolding();
         SpacePressed = true; 
-        if Sorted == 8 then
-            credits.load();
+        if Sorted == 6 then
+            loadAnim.load(700,-Window.height);
+            NextLoad = true;
         end
     end
 end

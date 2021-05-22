@@ -8,7 +8,7 @@ cutscene.load = function ()
     Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},
                             {"OOJOJOJOJ!!!","",""},{"OM JAG SKA HINNA HANDLA OCH","#TERVINNA INNAN JAG SKA TILL","SKOLAN M#STE JAG #KA NU!!!"},{""},
                             {"HOPPAS ATT JAG HITTAR N#GOT","SMARRIGT",""},{""},
-                            {"HEJ OCH V%LKOMNA TILL","#TERVINNINGENS UNDERBARA V%RLD",""},{""}};
+                            {"HEJ OCH V%LKOMNA TILL","#TERVINNINGENS UNDERBARA","V%RLD..."},{""}};
 
     Cutscene.draw = function ()
         if Cutscene.texts[Cutscene.scene][1] ~= "" then
@@ -36,7 +36,7 @@ cutscene.load = function ()
             elseif CurrentLevel == "ICA2" then
                 quest.set({"HANDLA",#Cart.items .. "/4",""});
             elseif CurrentLevel == "recycle_station" then
-                quest.set({"#TERVINN",Sorted .. "/8",""});
+                quest.set({"#TERVINN",Sorted .. "/6",""});
             end
             
         end

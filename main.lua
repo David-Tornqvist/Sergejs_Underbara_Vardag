@@ -15,10 +15,15 @@ local switch = require "entity.switch"
 local vehicles = require "entity.vehicles"
 local openCar = require "entity.openCar";
 local container = require "entity.container";
+local credits = require "credits";
 
 love.load = function ()
     camera.load();
     font.load();
+    quest.set();
+
+    Line = 0; -- end credits variable
+    
     
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
@@ -44,6 +49,10 @@ love.keypressed = function (key)
     end
 
     Cutscene.update(key);
+
+    
+    Line = Line + 1;
+    
 
 end
 
@@ -114,3 +123,5 @@ love.draw = function ()
     loadAnim.draw();
 
 end
+
+--credits.load();

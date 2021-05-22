@@ -78,6 +78,62 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_fish", "interact": true}
+        },
+        {
+          "x": 148,
+          "y": 40,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "mark", "interact": false}
+        },
+        {
+          "x": 132,
+          "y": 120,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 60,
+          "y": 200,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 132,
+          "y": 200,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 204,
+          "y": 200,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 60,
+          "y": 280,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
+        },
+        {
+          "x": 104,
+          "y": 280,
+          "texture": "marker.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "", "interact": false}
         }
       ],
       "folder": "../animations"

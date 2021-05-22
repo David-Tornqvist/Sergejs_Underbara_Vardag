@@ -35,8 +35,9 @@ openCar.interract = function (drawableIndex)
 
     if love.keyboard.isDown("space") and SpacePressed == false then
         Player.removeHolding();
-        Player.hold = type;
-        CreateEntityDrawable("item",Player.coords.x, Player.coords.y, openCar.trash[mathFunc.random(1,#openCar.trash + 1)] .. ".png",2,1,0);
+        local trash = openCar.trash[mathFunc.random(1,#openCar.trash + 1)]
+        Player.hold = trash;
+        CreateEntityDrawable("item",Player.coords.x, Player.coords.y, trash .. ".png",2,1,0);
         SpacePressed = true; 
     end
 end
