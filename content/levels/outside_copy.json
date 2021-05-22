@@ -1,5 +1,5 @@
 {
-  "ogmoVersion": "3.3.0",
+  "ogmoVersion": "3.4.0",
   "width": 568,
   "height": 360,
   "offsetX": 0,
@@ -21,7 +21,7 @@
           "texture": "hus_01.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 86, "height": 50, "collide": true, "hoy": 25, "hox": -21, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "", "interact": false}
+          "values": {"width": 86, "height": 50, "collide": true, "hoy": 25, "hox": -21, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "house", "interact": false}
         },
         {
           "x": 297,

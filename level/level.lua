@@ -6,7 +6,8 @@ local player = require "entity.player";
 local cart = require "entity.cartFunc";
 local fog = require "entity.fog";
 local string = require "dependencies.split";
-local loadAnim = require "loadAnim"
+local loadAnim = require "loadAnim";
+local switch = require "entity.switch"
 
 local level = {};
 
@@ -50,6 +51,7 @@ level.load = function (name)
 
     Drawables = {};
     loadDrawables(CurrentLevel);
+    entity.load(Levels[GetIndex(CurrentLevel)]);
 
     if name == "ICA" then
         player.load(40,90);
@@ -62,21 +64,23 @@ level.load = function (name)
     end
 
     if name == "bedroom" then
-        loadAnim.load(700);
+        loadAnim.load(-700,0);
         player.load(52,52);
         Cutscene.start();
     end
 
     if name == "house" then
-       player.load(Player.coords.x,Player.coords.y + 8); 
+       player.load(Player.coords.x,Player.coords.y + 8);
+       Cutscene.start(); 
     end
 
-    if name == "outside" or name == "outside_copy" then
-        loadAnim.load(700);
-        player.load(200,220);
+    if name == "outside_copy" then
+        player.load(250,208);
+        if Player.progress.switches == 0 then
+            Drawables[GetDrawableIndex("house")].animation.pointer.x = 2;
+        end
+        loadAnim.load(-700,0);
     end
-
-    entity.load(Levels[GetIndex(CurrentLevel)]);
 
 end
 
@@ -149,6 +153,31 @@ level.getDrawableIndex = function (name)
     end
 
     return -1;
+    
+end
+
+local time = 0;
+local nextLoad = false;
+
+level.next = function (dt)
+
+    if CurrentLevel == "house" and Player.coords.y > 225 and nextLoad == false then
+        loadAnim.load(700,-Window.height);
+        nextLoad = true;
+    
+    end
+
+    if nextLoad == true then
+        time = time + dt
+    end
+
+    if time > 0.2 then
+        time = 0;
+        nextLoad = false;
+        Player.progress.switches = switch.numberOn();
+        level.load("outside_copy");
+    end
+    
     
 end
 

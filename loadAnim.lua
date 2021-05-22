@@ -1,7 +1,7 @@
 local loadAnim = {};
 
-loadAnim.load = function (speed)
-    LoadAnim = {y = 0,speed = speed};
+loadAnim.load = function (speed,y)
+    LoadAnim = {y = y,speed = speed};
 end
 
 loadAnim.update = function (dt)

@@ -104,7 +104,15 @@ entity.createDrawables = function (level)
 
                 if thisDecal.values.animated == true then
 
-                    CreateEntityDrawable(  thisDecal.values.type .. "_" .. Identifier, thisDecal.x, thisDecal.y, thisDecal.texture, 
+                    local name = thisDecal.values.type .. "_" .. Identifier
+                    if thisDecal.values.type == "floor" then
+                        name = "floor"
+                    end
+                    if thisDecal.values.type == "house" then
+                        name = "house"
+                    end
+
+                    CreateEntityDrawable(  name, thisDecal.x, thisDecal.y, thisDecal.texture, 
                                             thisDecal.values.animWidth, thisDecal.values.animHeight, thisDecal.values.animTime);
                     thisDecal.identifier = Identifier;
                     Identifier = Identifier + 1;

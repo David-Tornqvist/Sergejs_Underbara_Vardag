@@ -2,6 +2,41 @@ local string = require "dependencies.split";
 
 local switch = {};
 
+switch.numberOn = function ()
+
+    local on = 0
+
+    for i = 1, #Drawables do
+        if Drawables[i].status then
+            on = on + 1;
+        end
+    end
+
+    return on;
+end
+
+switch.disableGlow = function ()
+
+    for i = 1, #Drawables do
+        
+        local name = Drawables[i].name
+
+        if name ~= nil then
+           
+            local entityType = string.split(name,"_")[1];
+
+            if entityType == "switch" then
+                if Drawables[i].status then
+                    Drawables[i].animation.pointer.x = 3;
+                else
+                    Drawables[i].animation.pointer.x = 1;    
+                end
+                
+            end
+        end
+    end
+end
+
 switch.load = function (entityType,thisDecal)
 
     if entityType == "switch" then
@@ -22,6 +57,14 @@ switch.load = function (entityType,thisDecal)
 end
 
 switch.interract = function (number,drawableIndex)
+
+    if Drawables[drawableIndex].animation.pointer.x == 3 then
+        Drawables[drawableIndex].animation.pointer.x = 5;
+    end
+
+    if Drawables[drawableIndex].animation.pointer.x == 1 then
+        Drawables[drawableIndex].animation.pointer.x = 4;
+    end
     
     if love.keyboard.isDown("space") and SpacePressed == false then
 
@@ -40,7 +83,6 @@ switch.interract = function (number,drawableIndex)
             LevelLoad("house");
         end
     end    
-
 end
 
 return switch;

@@ -1,9 +1,11 @@
+local quest = require "quest";
+
 local cutscene = {}
 
 cutscene.load = function ()
     Cutscene = {status = false,scene = 0,box = love.graphics.newImage("content/ui/monologue_box.png")};
 
-    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""}};
+    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},{"OOJOJOJOJ!!!","",""},{"OM JAG SKA HINNA HANDLA OCH","#TERVINNA INNAN JAG SKA TILL","SKOLAN M#STE JAG #KA NU!!!"},{""}};
 
     Cutscene.draw = function ()
         if Cutscene.texts[Cutscene.scene][1] ~= "" then
@@ -17,11 +19,19 @@ cutscene.load = function ()
         end
     end
 
-    Cutscene.update = function ()
+    Cutscene.update = function (key)
         if Cutscene.texts[Cutscene.scene][1] ~= "" then
             Cutscene.scene = Cutscene.scene + 1;
-        else
+            if key == "space" then
+                SpacePressed = true; 
+            end
+        end
+        if Cutscene.texts[Cutscene.scene][1] == "" then
             Cutscene.status = false;
+            if CurrentLevel == "house" then
+                quest.set({"TA DIG TILL","SKOLAN","0/1"});
+            end
+            
         end
     end
 

@@ -9,6 +9,8 @@ player.load = function (x,y)
 
     Player = {};
 
+    Player.progress = {};
+
     Player.spawn = {x = x, y = y};
 
     Player.coords = {x = Player.spawn.x, y = Player.spawn.y};

@@ -9,6 +9,9 @@ local cartFunc = require "entity.cartFunc";
 local loadAnim = require "loadAnim";
 local cutscene = require "cutscene";
 local font = require "font";
+local carpet = require "entity.carpet";
+local quest = require "quest";
+local switch = require "entity.switch"
 
 love.load = function ()
     camera.load();
@@ -18,7 +21,7 @@ love.load = function ()
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
     cutscene.load();
-    level.load("bedroom");
+    level.load("outside_copy");
     
 
     SpacePressed = false;
@@ -37,7 +40,7 @@ love.keypressed = function (key)
         end
     end
 
-    Cutscene.update();
+    Cutscene.update(key);
 
 end
 
@@ -56,9 +59,11 @@ love.update = function (dt)
 
     crate.disableGlow();
     cartFunc.disableGlow();
+    switch.disableGlow();
 
     if Cutscene.status == false then
         Player.input();
+        Player.interact(Levels[level.getIndex(CurrentLevel)]);
     end
    
 
@@ -68,11 +73,15 @@ love.update = function (dt)
 
     Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
 
-    Player.interact(Levels[level.getIndex(CurrentLevel)]);
+    
+
+    carpet.update();
 
     items.update(dt);
 
     loadAnim.update(dt);
+
+    level.next(dt);
     
 end
 
@@ -93,6 +102,8 @@ love.draw = function ()
     love.graphics.pop();
 
     Cutscene.draw();
+    quest.draw();
+
     
     loadAnim.draw();
 
