@@ -39,6 +39,8 @@ decals.createDrawables = function (level)
                         name = "decal",
                         x = thisDecal.x,
                         y = thisDecal.y,
+                        hox = thisDecal.values.hox,
+                        hoy = thisDecal.values.hoy,
                         image = thisDecal.image,
                         draw = function (i)
                             love.graphics.draw(Drawables[i].image, Drawables[i].x - Drawables[i].image:getWidth()/2, Drawables[i].y - Drawables[i].image:getHeight()/2);

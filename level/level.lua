@@ -5,6 +5,8 @@ local entity = require "entity.entity";
 local player = require "entity.player";
 local cart = require "entity.cartFunc";
 local fog = require "entity.fog";
+local string = require "dependencies.split";
+local loadAnim = require "loadAnim"
 
 local level = {};
 
@@ -60,7 +62,9 @@ level.load = function (name)
     end
 
     if name == "bedroom" then
+        loadAnim.load(700);
         player.load(52,52);
+        Cutscene.start();
     end
 
     if name == "house" then
@@ -68,7 +72,7 @@ level.load = function (name)
     end
 
     if name == "outside" then
-        player.load(52,52);
+        player.load(200,220);
     end
 
     entity.load(Levels[GetIndex(CurrentLevel)]);
@@ -88,13 +92,26 @@ end
 local sortDrawables = function ()
     
     table.sort(Drawables, function (a,b)
+        local AY = a.y;
+        local BY = b.y;
+        if a.name == "tree" then
+            AY = AY + a.hoy;
+        end
+
+        if b.name == "tree" then
+            BY = BY + b.hoy;
+        end
         
-        if a.name == "floor" then
+        if string.split(a.name, "_")[1] == "floor" then
             return true;
-        elseif b.name == "floor" then
-            return false;    
+        elseif string.split(b.name, "_")[1] == "floor" then
+            return false;  
+        elseif a.name == "mark" then
+            return false;
+        elseif b.name == "mark" then
+            return true;
         else
-            return a.y < b.y;    
+            return AY < BY;    
         end
         
     end);

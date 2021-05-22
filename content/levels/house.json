@@ -21,7 +21,7 @@
           "texture": "lampknapp_02.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 3, "animHeight": 1, "animTime": 0, "type": "switch_2", "interact": true}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 5, "animHeight": 1, "animTime": 0, "type": "switch_2", "interact": true}
         },
         {
           "x": 172,
@@ -29,7 +29,7 @@
           "texture": "lampknapp_01.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 3, "animHeight": 1, "animTime": 0, "type": "switch_3", "interact": true}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 5, "animHeight": 1, "animTime": 0, "type": "switch_3", "interact": true}
         },
         {
           "x": 148,
@@ -37,7 +37,7 @@
           "texture": "lampknapp_01.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 3, "animHeight": 1, "animTime": 0, "type": "switch_4", "interact": true}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 5, "animHeight": 1, "animTime": 0, "type": "switch_4", "interact": true}
         },
         {
           "x": 212,
@@ -45,7 +45,15 @@
           "texture": "lampknapp_02.png",
           "originX": 0.5,
           "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 3, "animHeight": 1, "animTime": 0, "type": "switch_5", "interact": true}
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 5, "animHeight": 1, "animTime": 0, "type": "switch_5", "interact": true}
+        },
+        {
+          "x": 80,
+          "y": 104,
+          "texture": "tutorial_matta.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 6, "animHeight": 1, "animTime": 0, "type": "floor", "interact": false}
         }
       ],
       "folder": "../animations"
@@ -91,14 +99,6 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 8, "height": 20, "collide": true, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 80,
-          "y": 104,
-          "texture": "tutorial_matta.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "floor", "interact": false}
         },
         {
           "x": 144,

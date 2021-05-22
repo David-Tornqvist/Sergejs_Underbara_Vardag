@@ -39,7 +39,37 @@ tiles.draw = function (level)
 
         local thisLayer = level.table.layers[layer];
 
-        if thisLayer.data2D ~= nil then
+        if thisLayer.data2D ~= nil and thisLayer.name == "ground" then
+
+            local coords = {x = 0, y = 0};
+
+            for i = 1, #thisLayer.data2D do
+                for b = 1, #thisLayer.data2D[i] do
+
+                    if thisLayer.data2D[i][b] ~= -1 then
+
+                        love.graphics.draw(TileSetImg[layer], Quads[layer][thisLayer.data2D[i][b] + 1], coords.x, coords.y);
+
+                    end
+
+                    coords.x = coords.x + thisLayer.gridCellWidth;
+                    
+                    if ((coords.x + thisLayer.gridCellWidth) > (thisLayer.gridCellsX * thisLayer.gridCellWidth)) then
+                       
+                        coords.x = 0;
+                        coords.y = coords.y + thisLayer.gridCellHeight;
+
+                    end
+                end
+            end
+        end
+    end
+
+    for layer = 1, #level.table.layers do
+
+        local thisLayer = level.table.layers[layer];
+
+        if thisLayer.data2D ~= nil  and thisLayer.name ~= "ground" then
 
             local coords = {x = 0, y = 0};
 
