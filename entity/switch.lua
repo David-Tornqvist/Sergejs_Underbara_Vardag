@@ -43,8 +43,6 @@ switch.load = function (entityType,thisDecal)
         thisDecal.distance = 14;
         local buttonNumber = string.split(thisDecal.values.type, "_")[2];
 
-        print(buttonNumber);
-
         if buttonNumber == "1" then
             Drawables[FindDrawableEntityIndex(thisDecal.values.type .. "_" .. thisDecal.identifier)].animation.pointer.x = 1; 
             Drawables[FindDrawableEntityIndex(thisDecal.values.type .. "_" .. thisDecal.identifier)].status = false;

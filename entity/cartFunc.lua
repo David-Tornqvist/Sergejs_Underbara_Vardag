@@ -1,5 +1,8 @@
-local entity = require "entity.entity"
-local player = require "entity.player"
+local entity = require "entity.entity";
+local player = require "entity.player";
+local quest = require "quest";
+local loadAnim = require "loadAnim";
+
 local cartFunc = {}
 
 cartFunc.disableGlow = function ()
@@ -44,8 +47,14 @@ cartFunc.load = function (x,y)
 
         if love.keyboard.isDown("space") and SpacePressed == false then
             Cart.items[#Cart.items+1] = Player.hold;
+            quest.set({"HANDLA",#Cart.items .. "/4",""});
             Player.removeHolding();
             SpacePressed = true; 
+            if #Cart.items == 4 then
+                PlayerProgress.wares = Cart.items;
+                loadAnim.load(700,-Window.height);
+                NextLoad = true;
+            end
         end
 
     end

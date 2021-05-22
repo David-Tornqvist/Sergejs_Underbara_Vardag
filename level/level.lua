@@ -7,7 +7,9 @@ local cart = require "entity.cartFunc";
 local fog = require "entity.fog";
 local string = require "dependencies.split";
 local loadAnim = require "loadAnim";
-local switch = require "entity.switch"
+local switch = require "entity.switch";
+local cutscene = require "cutscene";
+local quest = require "quest";
 
 local level = {};
 
@@ -37,6 +39,10 @@ local loadDrawables = function (name)
 end
 
 level.load = function (name)
+
+    
+    Time = 0;
+    NextLoad = false;
    
     Levels[#Levels + 1] = { name = name,
                             text = love.filesystem.read("content/levels/" .. name .. ".json")};
@@ -53,14 +59,19 @@ level.load = function (name)
     loadDrawables(CurrentLevel);
     entity.load(Levels[GetIndex(CurrentLevel)]);
 
-    if name == "ICA" then
-        player.load(40,90);
-        cart.load();
+    if name == "recycle_station" then
+        loadAnim.load(-700,0);
+        player.load(250,200);
+        quest.set();
+        Cutscene.start();
     end
 
     if name == "ICA2" then
+        loadAnim.load(-700,0);
         player.load(100,100);
         cart.load(100,90);
+        quest.set();
+        Cutscene.start();
     end
 
     if name == "bedroom" then
@@ -76,7 +87,7 @@ level.load = function (name)
 
     if name == "outside_copy" then
         player.load(250,208);
-        if Player.progress.switches == 0 then
+        if PlayerProgress.switches == 0 then
             Drawables[GetDrawableIndex("house")].animation.pointer.x = 2;
         end
         loadAnim.load(-700,0);
@@ -156,26 +167,28 @@ level.getDrawableIndex = function (name)
     
 end
 
-local time = 0;
-local nextLoad = false;
-
 level.next = function (dt)
 
-    if CurrentLevel == "house" and Player.coords.y > 225 and nextLoad == false then
+    if CurrentLevel == "house" and Player.coords.y > 225 and NextLoad == false then
         loadAnim.load(700,-Window.height);
-        nextLoad = true;
-    
+        NextLoad = true;
     end
 
-    if nextLoad == true then
-        time = time + dt
+    if NextLoad == true then
+        Time = Time + dt
     end
 
-    if time > 0.2 then
-        time = 0;
-        nextLoad = false;
-        Player.progress.switches = switch.numberOn();
-        level.load("outside_copy");
+    if Time > 0.2 then
+        Time = 0;
+        NextLoad = false;
+        if CurrentLevel == "house" then
+            PlayerProgress.switches = switch.numberOn();
+            level.load("outside_copy");
+        elseif CurrentLevel == "outside_copy" then
+            level.load("ICA2");
+        elseif CurrentLevel == "ICA2" then
+            level.load("recycle_station");    
+        end
     end
     
     

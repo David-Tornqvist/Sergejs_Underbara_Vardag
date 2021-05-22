@@ -5,7 +5,10 @@ local cutscene = {}
 cutscene.load = function ()
     Cutscene = {status = false,scene = 0,box = love.graphics.newImage("content/ui/monologue_box.png")};
 
-    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},{"OOJOJOJOJ!!!","",""},{"OM JAG SKA HINNA HANDLA OCH","#TERVINNA INNAN JAG SKA TILL","SKOLAN M#STE JAG #KA NU!!!"},{""}};
+    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},
+                            {"OOJOJOJOJ!!!","",""},{"OM JAG SKA HINNA HANDLA OCH","#TERVINNA INNAN JAG SKA TILL","SKOLAN M#STE JAG #KA NU!!!"},{""},
+                            {"HOPPAS ATT JAG HITTAR N#GOT","SMARRIGT",""},{""},
+                            {"HEJ OCH V%LKOMNA TILL","#TERVINNINGENS UNDERBARA V%RLD",""},{""}};
 
     Cutscene.draw = function ()
         if Cutscene.texts[Cutscene.scene][1] ~= "" then
@@ -29,7 +32,11 @@ cutscene.load = function ()
         if Cutscene.texts[Cutscene.scene][1] == "" then
             Cutscene.status = false;
             if CurrentLevel == "house" then
-                quest.set({"TA DIG TILL","SKOLAN","0/1"});
+                quest.set({"#K OCH HANDLA","0/1",""});
+            elseif CurrentLevel == "ICA2" then
+                quest.set({"HANDLA",#Cart.items .. "/4",""});
+            elseif CurrentLevel == "recycle_station" then
+                quest.set({"#TERVINN",Sorted .. "/8",""});
             end
             
         end

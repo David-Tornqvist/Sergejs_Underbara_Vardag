@@ -12,6 +12,9 @@ local font = require "font";
 local carpet = require "entity.carpet";
 local quest = require "quest";
 local switch = require "entity.switch"
+local vehicles = require "entity.vehicles"
+local openCar = require "entity.openCar";
+local container = require "entity.container";
 
 love.load = function ()
     camera.load();
@@ -21,7 +24,7 @@ love.load = function ()
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
     cutscene.load();
-    level.load("outside_copy");
+    level.load("bedroom");
     
 
     SpacePressed = false;
@@ -60,6 +63,9 @@ love.update = function (dt)
     crate.disableGlow();
     cartFunc.disableGlow();
     switch.disableGlow();
+    vehicles.disableGlow();
+    openCar.disableGlow();
+    container.disableGlow();
 
     if Cutscene.status == false then
         Player.input();

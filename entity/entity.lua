@@ -1,6 +1,9 @@
-local crate = require "entity.crate"
-local string = require "dependencies.split"
-local switch = require "entity.switch"
+local crate = require "entity.crate";
+local string = require "dependencies.split";
+local switch = require "entity.switch";
+local vehicles = require "entity.vehicles";
+local container = require "entity.container";
+local openCar = require "entity.openCar";
 local entity = {}
 
 entity.load = function (level)
@@ -13,6 +16,21 @@ entity.load = function (level)
         end,
         switch = function (type,drawableIndex)
             switch.interract(type,drawableIndex);
+        end,
+        moped = function (type,drawableIndex)
+            vehicles.interract("moped",drawableIndex);
+        end,
+        bike = function (type,drawableIndex)
+            vehicles.interract("bike",drawableIndex);
+        end,
+        car = function (type,drawableIndex)
+            vehicles.interract("car",drawableIndex);
+        end,
+        openCar = function (type,drawableIndex)
+            openCar.interract(drawableIndex);
+        end,
+        container = function (type,drawableIndex)
+            container.interract(type,drawableIndex);
         end
     }
 
@@ -27,6 +45,10 @@ entity.load = function (level)
     
                 crate.load(entityType,thisDecal);
                 switch.load(entityType,thisDecal);
+                vehicles.load(entityType,thisDecal);
+                openCar.load(entityType,thisDecal);
+                container.load(entityType,thisDecal);
+                
 
             end    
         end 

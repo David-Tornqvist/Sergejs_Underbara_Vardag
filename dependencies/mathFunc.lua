@@ -33,4 +33,8 @@ mathFunc.distance = function (x1,y1,x2,y2)
     return mathFunc.pythagoras(0,x1 - x2, y1 - y2,"hyp")
 end
 
+mathFunc.random = function (min,max)
+    return math.floor(love.math.random() * (max - min)) + min;
+end
+
 return mathFunc
