@@ -87,10 +87,11 @@ love.draw = function ()
     love.graphics.translate(-Player.coords.x, -Player.coords.y);
     level.draw(CurrentLevel);
 
-    loadAnim.draw();
 
     love.graphics.pop();
 
     Cutscene.draw();
+    
+    loadAnim.draw();
 
 end

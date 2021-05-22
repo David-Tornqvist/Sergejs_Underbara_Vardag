@@ -53,7 +53,7 @@ tiles.draw = function (level)
                     end
 
                     coords.x = coords.x + thisLayer.gridCellWidth;
-                    
+                     
                     if ((coords.x + thisLayer.gridCellWidth) > (thisLayer.gridCellsX * thisLayer.gridCellWidth)) then
                        
                         coords.x = 0;
