@@ -10,7 +10,7 @@ fog.draw = function ()
 
             local origin = {x = 0, y = 0}
 
-            love.graphics.setColor(0,0,0,0.8);
+            love.graphics.setColor(0,0,0,0.6);
 
             if buttonNumber == "1" then
                 love.graphics.rectangle("fill",27 + origin.x,11 + origin.y,90,133);
