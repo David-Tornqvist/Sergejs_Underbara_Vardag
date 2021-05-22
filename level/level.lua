@@ -72,6 +72,7 @@ level.load = function (name)
     end
 
     if name == "outside" then
+        loadAnim.load(700);
         player.load(200,220);
     end
 

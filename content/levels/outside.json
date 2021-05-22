@@ -363,6 +363,14 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "mark", "interact": false}
+        },
+        {
+          "x": 200,
+          "y": 48,
+          "texture": "förråd.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
         }
       ],
       "folder": "../decals"
