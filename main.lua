@@ -18,7 +18,7 @@ love.load = function ()
                 height = love.graphics.getHeight()/ScreenScale/Zoom}          
     
     cutscene.load();
-    level.load("outside_copy");
+    level.load("bedroom");
     
 
     SpacePressed = false;
@@ -91,8 +91,6 @@ love.draw = function ()
 
 
     love.graphics.pop();
-    Font.draw("TEST",20,20);
-
 
     Cutscene.draw();
     
