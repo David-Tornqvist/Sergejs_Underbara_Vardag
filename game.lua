@@ -24,6 +24,8 @@ game.load = function ()
     
     cutscene.load();
     level.load("bedroom");
+
+    PlayerProgress = {recycle = 0,trash = {}};
     
 
     SpacePressed = false;
