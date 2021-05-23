@@ -32,14 +32,6 @@
           "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_cucumber", "interact": true}
         },
         {
-          "x": 228.5,
-          "y": 144,
-          "texture": "ica_rödbetor.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_roots", "interact": true}
-        },
-        {
           "x": 64,
           "y": 304,
           "texture": "ica_biff.png",
@@ -142,6 +134,14 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "animWidth": 0, "animHeight": 0, "animTime": 0, "type": "mark", "interact": false}
+        },
+        {
+          "x": 228.5,
+          "y": 144,
+          "texture": "ica_rodbetor.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 38, "height": 50, "collide": true, "hoy": 0, "hox": 0, "animated": true, "animWidth": 2, "animHeight": 1, "animTime": 0, "type": "crate_roots", "interact": true}
         }
       ],
       "folder": "../animations"
@@ -159,7 +159,7 @@
         {
           "x": 24,
           "y": 40,
-          "texture": "fönster.png",
+          "texture": "fonster.png",
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
@@ -167,7 +167,7 @@
         {
           "x": 148,
           "y": 40,
-          "texture": "fönster.png",
+          "texture": "fonster.png",
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
@@ -175,7 +175,7 @@
         {
           "x": 296,
           "y": 40,
-          "texture": "fönster.png",
+          "texture": "fonster.png",
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
@@ -192,7 +192,7 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 45,
-      "tileset": "interior",
+      "tileset": "ica",
       "data2D": [
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
@@ -252,7 +252,7 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 45,
-      "tileset": "ICA",
+      "tileset": "ica",
       "data2D": [
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
@@ -312,7 +312,7 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 45,
-      "tileset": "ICA",
+      "tileset": "ica",
       "data2D": [
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
@@ -372,7 +372,7 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 45,
-      "tileset": "interior",
+      "tileset": "ica",
       "data2D": [
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],

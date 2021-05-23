@@ -60,7 +60,7 @@ level.load = function (name)
         Cutscene.start();
     end
 
-    if name == "ICA2" then
+    if name == "ica2" then
         loadAnim.load(-700,0);
         player.load(100,100);
         cart.load(100,90);
@@ -170,8 +170,8 @@ level.next = function (dt)
             PlayerProgress.switches = switch.numberOn();
             level.load("outside_copy");
         elseif CurrentLevel == "outside_copy" then
-            level.load("ICA2");
-        elseif CurrentLevel == "ICA2" then
+            level.load("ica2");
+        elseif CurrentLevel == "ica2" then
             level.load("recycle_station");
         elseif CurrentLevel == "recycle_station" then
             credits.load();        

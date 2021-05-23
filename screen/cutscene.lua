@@ -33,7 +33,7 @@ cutscene.load = function ()
             Cutscene.status = false;
             if CurrentLevel == "house" then
                 quest.set({"#K OCH HANDLA","0/1",""});
-            elseif CurrentLevel == "ICA2" then
+            elseif CurrentLevel == "ica2" then
                 quest.set({"HANDLA MED VAGN",#Cart.items .. "/4",""});
             elseif CurrentLevel == "recycle_station" then
                 quest.set({"#TERVINN",Sorted .. "/6",""});

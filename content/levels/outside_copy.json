@@ -69,217 +69,9 @@
           "values": {"width": 60, "height": 40, "collide": true, "hoy": 22, "hox": 40, "animated": false, "type": "", "interact": false}
         },
         {
-          "x": 285,
-          "y": 258,
-          "texture": "väg.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "floor", "interact": false}
-        },
-        {
-          "x": 224,
-          "y": 208,
-          "texture": "planta_låda.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 24, "height": 22, "collide": true, "hoy": 0, "hox": -2, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 364,
-          "y": 188,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "tree", "interact": false}
-        },
-        {
           "x": 297,
           "y": 264,
           "texture": "grind.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 80,
-          "y": 208,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 120,
-          "y": 40,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 72,
-          "y": 112,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 160,
-          "y": 56,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 56,
-          "y": 40,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 32,
-          "y": 168,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 112,
-          "y": 72,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 112,
-          "y": 232,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 32,
-          "y": 232,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 248,
-          "y": 32,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 200,
-          "y": 88,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "tree", "interact": false}
-        },
-        {
-          "x": 328,
-          "y": 24,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 288,
-          "y": 72,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "tree", "interact": false}
-        },
-        {
-          "x": 384,
-          "y": 80,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "tree", "interact": false}
-        },
-        {
-          "x": 440,
-          "y": 128,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 416,
-          "y": 24,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 432,
-          "y": 216,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 456,
-          "y": 168,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 496,
-          "y": 216,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 512,
-          "y": 120,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 544,
-          "y": 168,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 536,
-          "y": 72,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 472,
-          "y": 48,
-          "texture": "träd.png",
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
@@ -299,14 +91,6 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "mark", "interact": false}
-        },
-        {
-          "x": 368,
-          "y": 120,
-          "texture": "förråd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 45, "height": 40, "collide": true, "hoy": 24, "hox": 0, "animated": false, "type": "", "interact": false}
         },
         {
           "x": 304,
@@ -331,14 +115,6 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 6, "height": 8, "collide": true, "hoy": 24, "hox": 0, "animated": false, "type": "tree", "interact": false}
-        },
-        {
-          "x": 176,
-          "y": 216,
-          "texture": "träd.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "tree", "interact": false}
         },
         {
           "x": 344,
@@ -395,6 +171,206 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "mark", "interact": false}
+        },
+        {
+          "x": 176,
+          "y": 216,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 364,
+          "y": 188,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 14, "height": 14, "collide": true, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 368,
+          "y": 120,
+          "texture": "forrad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 45, "height": 40, "collide": true, "hoy": 24, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 112,
+          "y": 216,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 48,
+          "y": 200,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 64,
+          "y": 128,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 88,
+          "y": 80,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 32,
+          "y": 24,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 144,
+          "y": 72,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 184,
+          "y": 32,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 288,
+          "y": 32,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 232,
+          "y": 24,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 360,
+          "y": 48,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 328,
+          "y": 0,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 440,
+          "y": 208,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 496,
+          "y": 216,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 448,
+          "y": 112,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 504,
+          "y": 64,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 440,
+          "y": 8,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 416,
+          "y": 40,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 488,
+          "y": -8,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 544,
+          "y": 136,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 224,
+          "y": 208,
+          "texture": "planta_lada.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 24, "height": 24, "collide": true, "hoy": 0, "hox": -2, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 285,
+          "y": 258,
+          "texture": "vag.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "floor", "interact": false}
+        },
+        {
+          "x": 198,
+          "y": 92,
+          "texture": "trad.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 14, "height": 14, "collide": true, "hoy": 32, "hox": 0, "animated": false, "type": "", "interact": false}
         }
       ],
       "folder": "../decals"

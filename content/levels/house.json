@@ -77,22 +77,6 @@
           "values": {"width": 10, "height": 10, "collide": true, "hoy": 10, "hox": 0, "animated": false, "type": "", "interact": false}
         },
         {
-          "x": 72,
-          "y": 40,
-          "texture": "fönster.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 72,
-          "y": 64,
-          "texture": "säng.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 24, "height": 22, "collide": true, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
           "x": 104,
           "y": 56,
           "texture": "stol_02.png",
@@ -117,36 +101,12 @@
           "values": {"width": 32, "height": 16, "collide": true, "hoy": 4, "hox": 0, "animated": false, "type": "", "interact": false}
         },
         {
-          "x": 176,
-          "y": 24,
-          "texture": "fönster.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
           "x": 192,
           "y": 32,
           "texture": "planta.png",
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 10, "height": 10, "collide": true, "hoy": 10, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 224,
-          "y": 56,
-          "texture": "fönster.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
-        },
-        {
-          "x": 256,
-          "y": 56,
-          "texture": "fönster.png",
-          "originX": 0.5,
-          "originY": 0.5,
-          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
         },
         {
           "x": 240,
@@ -203,6 +163,46 @@
           "originX": 0.5,
           "originY": 0.5,
           "values": {"width": 10, "height": 10, "collide": true, "hoy": 10, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 72,
+          "y": 64,
+          "texture": "sang.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 24, "height": 22, "collide": true, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 72,
+          "y": 40,
+          "texture": "fonster.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 176,
+          "y": 24,
+          "texture": "fonster.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 224,
+          "y": 56,
+          "texture": "fonster.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
+        },
+        {
+          "x": 256,
+          "y": 56,
+          "texture": "fonster.png",
+          "originX": 0.5,
+          "originY": 0.5,
+          "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": false, "type": "", "interact": false}
         }
       ],
       "folder": "../decals"
@@ -262,7 +262,7 @@
       "gridCellHeight": 8,
       "gridCellsX": 40,
       "gridCellsY": 31,
-      "tileset": "ICA",
+      "tileset": "ica",
       "data2D": [
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
