@@ -14,9 +14,7 @@ carpet.update = function ()
         elseif Player.coords.y > 100 then
             carpet.animation.pointer.x = 2;     
         elseif Player.coords.x > 45 then
-            carpet.animation.pointer.x = 3;
-        else
-            carpet.animation.pointer.x = 6;    
+            carpet.animation.pointer.x = 3;   
         end
  
     end

@@ -143,13 +143,14 @@ local sortDrawables = function ()
     end
 end
 
+level.sortDrawables = sortDrawables;
+
 level.draw = function (name)
 
     local level = Levels[level.getIndex(name)];
 
     tiles.draw(level);
 
-    sortDrawables();
     drawDrawables();
     fog.draw();
 

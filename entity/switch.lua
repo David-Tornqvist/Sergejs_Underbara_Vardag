@@ -64,6 +64,12 @@ switch.interract = function (number,drawableIndex)
         Drawables[drawableIndex].animation.pointer.x = 4;
     end
     
+
+    if CurrentLevel == "bedroom" then
+        local carpet = Drawables[GetDrawableIndex("floor")];
+        carpet.animation.pointer.x = 6;
+    end
+
     if love.keyboard.isDown("space") and SpacePressed == false then
 
         Drawables[drawableIndex].status = not Drawables[drawableIndex].status;

@@ -11,6 +11,7 @@ local switch = require "entity.switch"
 local vehicles = require "entity.vehicles"
 local openCar = require "entity.openCar";
 local container = require "entity.container";
+local mark = require "entity.mark";
 
 local game = {};
 
@@ -67,6 +68,8 @@ game.load = function ()
         openCar.disableGlow();
         container.disableGlow();
 
+        carpet.update();
+
         if Cutscene.status == false then
             Player.input();
            Player.interact(Levels[level.getIndex(CurrentLevel)]);
@@ -81,13 +84,18 @@ game.load = function ()
 
     
 
-        carpet.update();
-
         items.update(dt);
 
         loadAnim.update(dt);
 
+        level.sortDrawables();
+
+
+        mark.update(dt);
+
         level.next(dt);
+
+    
     
     end
 
