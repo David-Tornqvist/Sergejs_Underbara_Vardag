@@ -1,3 +1,5 @@
+--David Törnqvist
+
 local entity = require "entity.entity";
 local string = require "dependencies.split"
 

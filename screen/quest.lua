@@ -13,9 +13,9 @@ quest.set = function (text)
         quest.draw = function ()
 
             love.graphics.draw(QuestIMG,0,0);
-            Font.draw(QuestText[1],14,10);
-            Font.draw(QuestText[2],14,18);
-            Font.draw(QuestText[3],14,28);                
+            Font.draw(QuestText[1],5,16);
+            Font.draw(QuestText[2],5,26);
+            Font.draw(QuestText[3],5,32);                
         end
     end
 

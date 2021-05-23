@@ -1,4 +1,4 @@
-local quest = require "quest";
+local quest = require "screen.quest";
 
 local cutscene = {}
 

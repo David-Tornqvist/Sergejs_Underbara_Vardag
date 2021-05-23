@@ -1,7 +1,7 @@
 local entity = require "entity.entity";
 local player = require "entity.player";
-local quest = require "quest";
-local loadAnim = require "loadAnim";
+local quest = require "screen.quest";
+local loadAnim = require "screen.loadAnim";
 
 local cartFunc = {}
 

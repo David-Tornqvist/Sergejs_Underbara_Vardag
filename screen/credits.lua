@@ -1,5 +1,9 @@
 local credits = {};
 
+credits.loadImmediatly = function ()
+    credits.load(7);
+end
+
 credits.foodEmission = function (ware)
     local emissionTable = {
         BANAN = 0.6,
@@ -41,11 +45,15 @@ credits.trashEmission = function ()
     
 end
 
-credits.load = function ()
+credits.load = function (line)
 
     CreditsImage = love.graphics.newImage("content/ui/end_screen.png");
 
-    Line = 0;
+    Line = line;
+
+    if line == nil then
+        Line = 0;
+    end
 
     local translationTable = {
         banana = "BANAN",
@@ -66,13 +74,16 @@ credits.load = function ()
         jar = "GLAS        0.4 KG"
     }
 
-    for i = 1, #PlayerProgress.wares do
-        
-        PlayerProgress.wares[i] = translationTable[PlayerProgress.wares[i]];
-        
-    end
 
-    PlayerProgress.vehicle = translationTable[PlayerProgress.vehicle];
+    if Line == 0 then
+        for i = 1, #PlayerProgress.wares do
+        
+            PlayerProgress.wares[i] = translationTable[PlayerProgress.wares[i]];
+            
+        end
+    
+        PlayerProgress.vehicle = translationTable[PlayerProgress.vehicle]; 
+    end
     
     
     love.update = function ()
@@ -101,6 +112,7 @@ credits.load = function ()
         love.graphics.scale(ScreenScale, ScreenScale);
         love.graphics.scale(Zoom, Zoom);
         love.graphics.draw(CreditsImage,0,0);
+        love.graphics.setColor(1,1,1,1);
 
         if Line > -1 and Line < 6 then
             Font.draw(" VAL" .. "               " .."CO2 UTSL%PP I KG",40,40);
@@ -256,6 +268,10 @@ credits.load = function ()
 
             Font.draw("  HIROKAZU TANAKA", 40, 130);
             Font.draw("  MUSIK", 40, 140);
+        end
+
+        if Line == 14 then
+            LoadMainMenu();
         end
 
     end

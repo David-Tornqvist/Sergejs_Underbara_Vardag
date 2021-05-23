@@ -6,11 +6,10 @@ local player = require "entity.player";
 local cart = require "entity.cartFunc";
 local fog = require "entity.fog";
 local string = require "dependencies.split";
-local loadAnim = require "loadAnim";
+local loadAnim = require "screen.loadAnim";
 local switch = require "entity.switch";
-local cutscene = require "cutscene";
-local quest = require "quest";
-local credits = require "credits";
+local quest = require "screen.quest";
+local credits = require "screen.credits";
 
 local level = {};
 

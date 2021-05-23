@@ -1,5 +1,5 @@
 local string = require "dependencies.split";
-local loadAnim = require "loadAnim";
+local loadAnim = require "screen.loadAnim";
 
 local vehicles = {};
 

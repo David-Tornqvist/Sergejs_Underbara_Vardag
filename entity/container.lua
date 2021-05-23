@@ -1,7 +1,7 @@
 local string = require "dependencies.split";
-local quest = require "quest";
-local credits = require "credits";
-local loadAnim = require "loadAnim";
+local quest = require "screen.quest";
+local credits = require "screen.credits";
+local loadAnim = require "screen.loadAnim";
 
 local container = {};
 
@@ -52,10 +52,11 @@ container.interract = function (type,drawableIndex)
                 PlayerProgress.trash[#PlayerProgress.trash+1] = Player.hold;    
             end
             Sorted = Sorted + 1;
+            Player.removeHolding();
         end
         
         quest.set({"#TERVINN",Sorted .. "/6",""});
-        Player.removeHolding();
+        
         SpacePressed = true; 
         if Sorted == 6 then
             loadAnim.load(700,-Window.height);
