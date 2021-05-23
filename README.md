@@ -1,5 +1,4 @@
-# miljö-spel
+Sergejs Underbara Vardag!
 
-ett spel om miljön
-
-TBC
+Ladda ned och spela redan nu:
+https://drive.google.com/file/d/11Hdhk0dWtZJuQz_sy0wEdd_TnNGDAefw/view?usp=sharing
