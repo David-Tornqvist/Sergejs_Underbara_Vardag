@@ -5,7 +5,7 @@ local cutscene = {}
 cutscene.load = function ()
     Cutscene = {status = false,scene = 0,box = love.graphics.newImage("content/ui/monologue_box.png")};
 
-    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","",""},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},
+    Cutscene.texts = {[0] = {""},{"GODMORGON K%RA V%NNER OCH...","","TRYCK P# TANGENTBORDET"},{"GODMORGON K%RA V%NNER OCH...","KANSKE BORDE T%NDA LAMPAN","F&RST"},{""},
                             {"OOJOJOJOJ!!!","",""},{"OM JAG SKA HINNA HANDLA OCH","#TERVINNA INNAN JAG SKA TILL","SKOLAN M#STE JAG #KA NU!!!"},{""},
                             {"HOPPAS ATT JAG HITTAR N#GOT","SMARRIGT",""},{""},
                             {"HEJ OCH V%LKOMNA TILL","#TERVINNINGENS UNDERBARA","V%RLD..."},{""}};
@@ -34,7 +34,7 @@ cutscene.load = function ()
             if CurrentLevel == "house" then
                 quest.set({"#K OCH HANDLA","0/1",""});
             elseif CurrentLevel == "ICA2" then
-                quest.set({"HANDLA",#Cart.items .. "/4",""});
+                quest.set({"HANDLA MED VAGN",#Cart.items .. "/4",""});
             elseif CurrentLevel == "recycle_station" then
                 quest.set({"#TERVINN",Sorted .. "/6",""});
             end

@@ -47,7 +47,7 @@ cartFunc.load = function (x,y)
 
         if love.keyboard.isDown("space") and SpacePressed == false then
             Cart.items[#Cart.items+1] = Player.hold;
-            quest.set({"HANDLA",#Cart.items .. "/4",""});
+            quest.set({"HANDLA MED VAGN",#Cart.items .. "/4",""});
             Player.removeHolding();
             SpacePressed = true; 
             if #Cart.items == 4 then
