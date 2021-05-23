@@ -12,6 +12,7 @@ love.load = function ()
 
     Soundtack = love.audio.newSource("content/audio/tetris.mp3", "stream");
     Soundtack:setLooping(true);
+    Soundtack:setVolume(0.5)
     Soundtack:play();
 
     LoadMainMenu();
