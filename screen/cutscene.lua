@@ -1,6 +1,6 @@
 local quest = require "screen.quest";
 
-local cutscene = {}
+local cutscene = {};
 
 cutscene.load = function ()
     Cutscene = {status = false,scene = 0,box = love.graphics.newImage("content/ui/monologue_box.png")};

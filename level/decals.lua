@@ -2,7 +2,6 @@
 local decals = {}
 
 decals.load = function (level)
-
     for i = 1, #level.table.layers do
 
         local thisLayer = level.table.layers[i];
@@ -16,14 +15,12 @@ decals.load = function (level)
                     thisDecal.image = 
                     love.graphics.newImage("content" ..  thisLayer.folder:gsub('%.', '') .. "/" .. thisDecal.texture); 
                 end
-
             end
         end
     end
 end
 
 decals.createDrawables = function (level)
-
     for i = 1, #level.table.layers do
         
         local thisLayer = level.table.layers[i];
@@ -56,7 +53,6 @@ decals.createDrawables = function (level)
 end
 
 decals.collide = function (level,dx,dy)
-
     local collide = false;
 
     for layer = 1, #level.table.layers do
@@ -81,7 +77,6 @@ decals.collide = function (level,dx,dy)
     end    
 
     return collide;
-
 end
 
 return decals;

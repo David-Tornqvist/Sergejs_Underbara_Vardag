@@ -4,10 +4,9 @@ local loadAnim = require "screen.loadAnim";
 local vehicles = {};
 
 vehicles.disableGlow = function ()
-
     for i = 1, #Drawables do
         
-        local name = Drawables[i].name
+        local name = Drawables[i].name;
 
         if name ~= nil then
            
@@ -21,7 +20,6 @@ vehicles.disableGlow = function ()
 end
 
 vehicles.load = function (entityType,thisDecal)
-
     if entityType == "car" then
         thisDecal.distance = 20; 
     end
@@ -33,11 +31,9 @@ vehicles.load = function (entityType,thisDecal)
     if entityType == "moped" then
         thisDecal.distance = 20; 
     end
-
 end
 
 vehicles.interract = function (vehicle,drawableIndex)
-
     Drawables[drawableIndex].animation.pointer.x = 2;
 
     if love.keyboard.isDown("space") and SpacePressed == false then
@@ -46,7 +42,6 @@ vehicles.interract = function (vehicle,drawableIndex)
         loadAnim.load(700,-Window.height);
         NextLoad = true;
     end
-    
 end
 
 return vehicles;

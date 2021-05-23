@@ -1,6 +1,6 @@
-local game = require "game"
-local credits = require "screen.credits"
 --David Törnqvist
+local game = require "game";
+local credits = require "screen.credits";
 
 game = require "game";
 
@@ -19,7 +19,7 @@ LoadMainMenu = function ()
 
     local toggleMusic = function ()
         if Music == true then
-            Soundtack:pause()
+            Soundtack:pause();
             Music = false;
         else
             Soundtack:play();

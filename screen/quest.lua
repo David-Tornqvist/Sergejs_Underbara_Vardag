@@ -1,7 +1,6 @@
 local quest = {};
 
 quest.set = function (text)
-
     QuestIMG = love.graphics.newImage("content/ui/progress.png");
     QuestText = text;
 
@@ -18,8 +17,6 @@ quest.set = function (text)
             Font.draw(QuestText[3],5,32);                
         end
     end
-
-    
 end
 
 quest.draw = function ()

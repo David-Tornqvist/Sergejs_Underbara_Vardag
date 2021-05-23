@@ -4,11 +4,12 @@ local items = require "entity.item";
 local cartFunc = require "entity.cartFunc";
 local loadAnim = require "screen.loadAnim";
 local cutscene = require "screen.cutscene";
+local creditsText = require "screen.creditsText";
 local font = require "dependencies.font";
 local carpet = require "entity.carpet";
 local quest = require "screen.quest";
-local switch = require "entity.switch"
-local vehicles = require "entity.vehicles"
+local switch = require "entity.switch";
+local vehicles = require "entity.vehicles";
 local openCar = require "entity.openCar";
 local container = require "entity.container";
 local mark = require "entity.mark";
@@ -16,7 +17,6 @@ local mark = require "entity.mark";
 local game = {};
 
 game.load = function ()
-
     love.mousemoved = function ()
         
     end
@@ -34,12 +34,9 @@ game.load = function ()
     level.load("bedroom");
 
     PlayerProgress = {recycle = 0,trash = {}};
-    
-
     SpacePressed = false;
 
     love.keypressed = function (key)
-
         if key == "escape" then
             love.event.quit();
         end
@@ -52,10 +49,7 @@ game.load = function ()
 
         Cutscene.update(key);
 
-    
         Line = Line + 1;
-    
-
     end
 
     love.keyreleased = function (key)
@@ -70,7 +64,6 @@ game.load = function ()
     end
 
     love.update = function (dt)
-
         crate.disableGlow();
         cartFunc.disableGlow();
         switch.disableGlow();
@@ -85,14 +78,9 @@ game.load = function ()
            Player.interact(Levels[level.getIndex(CurrentLevel)]);
         end
    
-
         Player.speedUpdate();
-
         Player.animationUpdate(dt);
-
         Player.collide(dt,Levels[level.getIndex(CurrentLevel)]);
-
-    
 
         items.update(dt);
 
@@ -100,39 +88,27 @@ game.load = function ()
 
         level.sortDrawables();
 
-
         mark.update(dt);
 
-        level.next(dt);
-
-    
-    
+        level.next(dt);    
     end
 
 
     love.draw = function ()
-    
         love.graphics.scale(ScreenScale, ScreenScale);
         love.graphics.scale(Zoom, Zoom);
-
         love.graphics.push();
-
         love.graphics.translate((Window.width/2 ), (Window.height/2));
-    
         love.graphics.translate(-Player.coords.x, -Player.coords.y);
+        
         level.draw(CurrentLevel);
-
 
         love.graphics.pop();
 
         Cutscene.draw();
         quest.draw();
-
-    
         loadAnim.draw();
-
     end
-    
 end
 
 return game;

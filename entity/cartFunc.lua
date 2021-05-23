@@ -1,9 +1,8 @@
 local entity = require "entity.entity";
-local player = require "entity.player";
 local quest = require "screen.quest";
 local loadAnim = require "screen.loadAnim";
 
-local cartFunc = {}
+local cartFunc = {};
 
 cartFunc.disableGlow = function ()
     local index = entity.findDrawableEntityIndex("cart");
@@ -15,7 +14,6 @@ cartFunc.disableGlow = function ()
 end
 
 cartFunc.load = function (x,y)
-
     Cart = {items = {},distance = 20,drive = false};
 
     CreateEntityDrawable("cart",x,y,"vagn.png",6,3,0);
@@ -56,7 +54,6 @@ cartFunc.load = function (x,y)
                 NextLoad = true;
             end
         end
-
     end
 end
 

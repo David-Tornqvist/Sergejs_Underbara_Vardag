@@ -24,7 +24,7 @@
           "values": {"width": 0, "height": 0, "collide": false, "hoy": 0, "hox": 0, "animated": true, "animWidth": 5, "animHeight": 1, "animTime": 0, "type": "switch_1", "interact": true}
         },
         {
-          "x": 80,
+          "x": 72,
           "y": 96,
           "texture": "tutorial_matta.png",
           "originX": 0.5,

@@ -1,16 +1,13 @@
 local string = require "dependencies.split";
-local crate = {}
+local crate = {};
 
 crate.load = function (entityType,thisDecal)
-
     if entityType == "crate" then
         thisDecal.distance = 30; 
     end
-
 end
 
 crate.interract = function (item,drawableIndex)
-
     Drawables[drawableIndex].animation.pointer.x = 2;
 
     if love.keyboard.isDown("space") and SpacePressed == false then
@@ -22,10 +19,9 @@ crate.interract = function (item,drawableIndex)
 end
 
 crate.disableGlow = function ()
-
     for i = 1, #Drawables do
         
-        local name = Drawables[i].name
+        local name = Drawables[i].name;
 
         if name ~= nil then
            

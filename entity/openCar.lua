@@ -4,10 +4,9 @@ local mathFunc = require "dependencies.mathFunc";
 local openCar = {};
 
 openCar.disableGlow = function ()
-
     for i = 1, #Drawables do
         
-        local name = Drawables[i].name
+        local name = Drawables[i].name;
 
         if name ~= nil then
            
@@ -21,11 +20,9 @@ openCar.disableGlow = function ()
 end
 
 openCar.load = function (entityType,thisDecal)
-
     if entityType == "openCar" then
         thisDecal.distance = 30; 
     end
-
 end
 
 openCar.trash = {"bottle","jar","ketchup","milk","tincan"};

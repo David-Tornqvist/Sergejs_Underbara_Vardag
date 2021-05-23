@@ -17,30 +17,24 @@ Levels = {};
 TileSetImg = {};
 
 level.getIndex = function (name)
-
     for i = 1, #Levels do
         if Levels[i].name == name then
             return i;
         end
     end
-    
 end
 
 local GetIndex = level.getIndex;
 
 local loadDrawables = function (name)
-
     local index = level.getIndex(name);
     local level = Levels[index];
 
     decals.load(level);
     decals.createDrawables(level);
-    
 end
 
 level.load = function (name)
-
-    
     Time = 0;
     NextLoad = false;
    
@@ -92,21 +86,17 @@ level.load = function (name)
         end
         loadAnim.load(-700,0);
     end
-
 end
 
 LevelLoad = level.load;
 
 local drawDrawables = function ()
-
     for i = 1, #Drawables do
         Drawables[i].draw(i);
     end
-
 end
 
 local sortDrawables = function ()
-    
     table.sort(Drawables, function (a,b)
         local AY = a.y;
         local BY = b.y;
@@ -129,7 +119,6 @@ local sortDrawables = function ()
         else
             return AY < BY;    
         end
-        
     end);
 
     if Cart ~= nil then
@@ -146,18 +135,15 @@ end
 level.sortDrawables = sortDrawables;
 
 level.draw = function (name)
-
     local level = Levels[level.getIndex(name)];
 
     tiles.draw(level);
 
     drawDrawables();
     fog.draw();
-
 end
 
 level.getDrawableIndex = function (name)
-    
     for i = 1, #Drawables do
         if name == Drawables[i].name then
             return i;
@@ -165,18 +151,16 @@ level.getDrawableIndex = function (name)
     end
 
     return -1;
-    
 end
 
 level.next = function (dt)
-
     if CurrentLevel == "house" and Player.coords.y > 225 and NextLoad == false then
         loadAnim.load(700,-Window.height);
         NextLoad = true;
     end
 
     if NextLoad == true then
-        Time = Time + dt
+        Time = Time + dt;
     end
 
     if Time > 0.2 then
@@ -193,8 +177,6 @@ level.next = function (dt)
             credits.load();        
         end
     end
-    
-    
 end
 
 GetDrawableIndex = level.getDrawableIndex;

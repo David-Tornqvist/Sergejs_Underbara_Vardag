@@ -1,14 +1,14 @@
 --David Törnqvist
 
 local entity = require "entity.entity";
-local string = require "dependencies.split"
+local string = require "dependencies.split";
 
-local font = {}
+local font = {};
 
 font.load = function ()
     Font = {};
     Font.animation = entity.animationLoad("font.png",44,1,0);
-    Font.animation.pointer.x = 0
+    Font.animation.pointer.x = 0;
     Font.glyphs = {" ","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#","%","&","1","2","3","4","5","6","7","8","9","0",".","!","?","/"};
     Font.x = 0;
     Font.y = 0;
@@ -17,7 +17,7 @@ font.load = function ()
 
         for i = 1, #Font.glyphs do
             if char == Font.glyphs[i] then
-                return i
+                return i;
             end            
         end
         return 1;

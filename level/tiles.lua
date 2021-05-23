@@ -1,7 +1,6 @@
 local tiles = {}
 
 tiles.load = function (level)
-
     Quads = {};
 
     for i = 1, #level.table.layers do
@@ -97,7 +96,6 @@ tiles.draw = function (level)
 end
 
 tiles.collide = function (level,dx,dy)
-
     local collide = false
 
     for layer = 1, #level.table.layers do
@@ -127,4 +125,4 @@ tiles.collide = function (level,dx,dy)
 
 end
 
-return tiles
+return tiles;

@@ -3,7 +3,6 @@ local string = require "dependencies.split";
 local switch = {};
 
 switch.numberOn = function ()
-
     local on = 0
 
     for i = 1, #Drawables do
@@ -16,7 +15,6 @@ switch.numberOn = function ()
 end
 
 switch.disableGlow = function ()
-
     for i = 1, #Drawables do
         
         local name = Drawables[i].name
@@ -31,14 +29,12 @@ switch.disableGlow = function ()
                 else
                     Drawables[i].animation.pointer.x = 1;    
                 end
-                
             end
         end
     end
 end
 
 switch.load = function (entityType,thisDecal)
-
     if entityType == "switch" then
         thisDecal.distance = 14;
         local buttonNumber = string.split(thisDecal.values.type, "_")[2];
@@ -50,12 +46,10 @@ switch.load = function (entityType,thisDecal)
             Drawables[FindDrawableEntityIndex(thisDecal.values.type .. "_" .. thisDecal.identifier)].animation.pointer.x = 3; 
             Drawables[FindDrawableEntityIndex(thisDecal.values.type .. "_" .. thisDecal.identifier)].status = true;
         end
-    end
-    
+    end 
 end
 
 switch.interract = function (number,drawableIndex)
-
     if Drawables[drawableIndex].animation.pointer.x == 3 then
         Drawables[drawableIndex].animation.pointer.x = 5;
     end
@@ -63,7 +57,6 @@ switch.interract = function (number,drawableIndex)
     if Drawables[drawableIndex].animation.pointer.x == 1 then
         Drawables[drawableIndex].animation.pointer.x = 4;
     end
-    
 
     if CurrentLevel == "bedroom" then
         local carpet = Drawables[GetDrawableIndex("floor")];
@@ -79,7 +72,6 @@ switch.interract = function (number,drawableIndex)
         else
             Drawables[drawableIndex].animation.pointer.x = 1;  
         end 
-        
         
         SpacePressed = true; 
 

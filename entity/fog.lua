@@ -1,9 +1,8 @@
-local string = require "dependencies.split"
+local string = require "dependencies.split";
 
-local fog = {}
+local fog = {};
 
 fog.draw = function ()
-
     for i = 1, #Drawables do
         if Drawables[i].status == false then
             local buttonNumber = string.split(Drawables[i].name, "_")[2];
@@ -35,7 +34,6 @@ fog.draw = function ()
             love.graphics.setColor(1,1,1,1);
         end
     end
-
 end
 
 return fog;

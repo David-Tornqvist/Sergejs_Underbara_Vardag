@@ -1,15 +1,13 @@
 local string = require "dependencies.split";
 local quest = require "screen.quest";
-local credits = require "screen.credits";
 local loadAnim = require "screen.loadAnim";
 
 local container = {};
 
 container.disableGlow = function ()
-
     for i = 1, #Drawables do
         
-        local name = Drawables[i].name
+        local name = Drawables[i].name;
 
         if name ~= nil then
            
@@ -23,13 +21,11 @@ container.disableGlow = function ()
 end
 
 container.load = function (entityType,thisDecal)
-
     Sorted = 0;
 
     if entityType == "container" then
         thisDecal.distance = 35; 
     end
-
 end
 
 container.interract = function (type,drawableIndex)

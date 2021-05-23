@@ -1,8 +1,6 @@
 local carpet = {};
 
 carpet.update = function ()
-
-
     if CurrentLevel == "bedroom" then
 
         local carpet = Drawables[GetDrawableIndex("floor")];

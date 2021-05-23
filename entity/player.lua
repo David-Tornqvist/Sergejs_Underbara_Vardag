@@ -6,7 +6,6 @@ local mathFunc = require "dependencies.mathFunc";
 local player = {}
 
 player.load = function (x,y)
-
     Player = {};
 
     Player.spawn = {x = x, y = y};
@@ -58,7 +57,6 @@ player.load = function (x,y)
     end
 
     Player.input = function ()
-        
         if love.keyboard.isDown("w") and love.keyboard.isDown("d") then
             Player.direction = 2;
             Player.isMoving = true;
@@ -90,7 +88,6 @@ player.load = function (x,y)
 
     Player.speedUpdate = function ()
         local diagonalSpeed = mathFunc.pythagoras(Player.moveSpeed,0,0,"leg")
-
 
         if Player.direction == 1 then
             if Player.isMoving then
@@ -160,11 +157,9 @@ player.load = function (x,y)
 
         Drawables[entity.findDrawableEntityIndex("player")].animation.pointer.y = Player.animation.pointer.y;
         Drawables[entity.findDrawableEntityIndex("player")].animation.pointer.x = Player.animation.pointer.x;
-
     end
 
     Player.isCollide = function (level,dx,dy) -- checks wether the new position would collide
-    
         local collide = false;
     
         if decals.collide(level,dx,dy) or tiles.collide(level,dx,dy) then
@@ -172,7 +167,6 @@ player.load = function (x,y)
         end
         
         return collide
-    
     end
 
     Player.collide = function (dt,level)
@@ -187,11 +181,9 @@ player.load = function (x,y)
 
         Drawables[entity.findDrawableEntityIndex("player")].x = Player.coords.x;
         Drawables[entity.findDrawableEntityIndex("player")].y = Player.coords.y;
-
     end
 
     Player.interact = function (level)
-
         for i = 1, #level.table.layers do
             local thisLayer = level.table.layers[i];
             
@@ -199,11 +191,8 @@ player.load = function (x,y)
                 for b = 1, #thisLayer.decals do
                     local thisDecal = thisLayer.decals[b]; 
                     if thisDecal.values.interact then
-
                         if mathFunc.distance(Player.coords.x,Player.coords.y,thisDecal.x,thisDecal.y) < thisDecal.distance then
-
                             entity.interract(thisDecal.values.type,thisDecal.identifier);
-                            
                         end
                     end
                 end 
@@ -218,12 +207,9 @@ player.load = function (x,y)
     end
 
     Player.removeHolding = function ()
-
         Player.hold = "none"
-        table.remove(Drawables,GetDrawableIndex("item"));
-        
+        table.remove(Drawables,GetDrawableIndex("item")); 
     end
-
 end
 
 return player;
