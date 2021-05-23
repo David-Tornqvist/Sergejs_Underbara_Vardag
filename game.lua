@@ -17,6 +17,14 @@ local game = {};
 
 game.load = function ()
 
+    love.mousemoved = function ()
+        
+    end
+
+    love.mousepressed = function ()
+        
+    end
+
     quest.set();
     
     Window = {  width = love.graphics.getWidth()/ScreenScale/Zoom,
