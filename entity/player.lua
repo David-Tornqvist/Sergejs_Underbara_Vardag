@@ -226,6 +226,6 @@ player.load = function (x,y)
 
 end
 
-PlayerProgress = {recycle = 0};
+PlayerProgress = {recycle = 0,trash = {}};
 
 return player;

@@ -12,7 +12,7 @@ quest.set = function (text)
     else
         quest.draw = function ()
 
-            love.graphics.draw(QuestIMG,0,0,0,3,2);
+            love.graphics.draw(QuestIMG,0,0);
             Font.draw(QuestText[1],14,10);
             Font.draw(QuestText[2],14,18);
             Font.draw(QuestText[3],14,28);                

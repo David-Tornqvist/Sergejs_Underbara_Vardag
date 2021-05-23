@@ -37,10 +37,6 @@ container.interract = function (type,drawableIndex)
 
     if love.keyboard.isDown("space") and SpacePressed == false then
 
-
-        print(type);
-        print(Player.hold);
-
         if Player.hold ~= "none" then
             if type == "glassColored" and Player.hold == "bottle"  then
                 PlayerProgress.recycle = PlayerProgress.recycle + 1;
@@ -52,6 +48,8 @@ container.interract = function (type,drawableIndex)
                 PlayerProgress.recycle = PlayerProgress.recycle + 1; 
             elseif type == "glassUncolored" and Player.hold == "jar" then           
                 PlayerProgress.recycle = PlayerProgress.recycle + 1;
+            else
+                PlayerProgress.trash[#PlayerProgress.trash+1] = Player.hold;    
             end
             Sorted = Sorted + 1;
         end
