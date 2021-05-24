@@ -4,8 +4,6 @@ local items = require "entity.item";
 local cartFunc = require "entity.cartFunc";
 local loadAnim = require "screen.loadAnim";
 local cutscene = require "screen.cutscene";
-local creditsText = require "screen.creditsText";
-local font = require "dependencies.font";
 local carpet = require "entity.carpet";
 local quest = require "screen.quest";
 local switch = require "entity.switch";
@@ -13,6 +11,8 @@ local vehicles = require "entity.vehicles";
 local openCar = require "entity.openCar";
 local container = require "entity.container";
 local mark = require "entity.mark";
+require "screen.creditsText";
+require "dependencies.font";
 
 local game = {};
 

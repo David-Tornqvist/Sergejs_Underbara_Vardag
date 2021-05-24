@@ -1,4 +1,4 @@
-local tiles = {}
+local tiles = {};
 
 tiles.load = function (level)
     Quads = {};

@@ -1,4 +1,3 @@
-
 local decals = {}
 
 decals.load = function (level)

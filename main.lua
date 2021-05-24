@@ -1,6 +1,6 @@
 local camera = require "dependencies.camera";
 local font = require "dependencies.font";
-local menu = require "dependencies.mainmenu";
+require "dependencies.mainmenu";
 
 love.load = function ()
 
